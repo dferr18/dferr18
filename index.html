@@ -3,117 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skylo Studios</title>
+    <title>Coming Soon!</title>
     <style>
-        body {
+        /* General Reset */
+        * {
             margin: 0;
-            overflow: hidden;
-            background: #0e0e0e;
-            color: #fff;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
             height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            color: #333;
         }
 
-        a {
-            font-size: 3rem; /* Adjusted font size for better scaling */
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-            letter-spacing: 2px;
-            color: #f1f1f1;
-            text-decoration: none;
-            z-index: 10;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
-            text-align: center; /* Centers text content inside the link */
-        }
-
-        a:hover {
-            color: #00ffff;
-            text-shadow: 0 0 30px rgba(0, 255, 255, 1), 0 0 60px rgba(0, 255, 255, 0.7);
-        }
-
-        canvas {
+        /* Sliding Bars Background */
+        .background {
             position: absolute;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .bar {
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: #f0f0f0;
+            animation: slide 3s linear infinite;
+        }
+
+        .bar:nth-child(even) {
+            background: #e0e0e0;
+        }
+
+        @keyframes slide {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(100%);
+            }
+        }
+
+        /* Stagger Animation for Bars */
+        .bar:nth-child(1) { top: 10%; animation-delay: 0s; }
+        .bar:nth-child(2) { top: 20%; animation-delay: 0.2s; }
+        .bar:nth-child(3) { top: 30%; animation-delay: 0.4s; }
+        .bar:nth-child(4) { top: 40%; animation-delay: 0.6s; }
+        .bar:nth-child(5) { top: 50%; animation-delay: 0.8s; }
+        .bar:nth-child(6) { top: 60%; animation-delay: 1s; }
+        .bar:nth-child(7) { top: 70%; animation-delay: 1.2s; }
+        .bar:nth-child(8) { top: 80%; animation-delay: 1.4s; }
+        .bar:nth-child(9) { top: 90%; animation-delay: 1.6s; }
+
+        /* Coming Soon Text */
+        .center-content {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #444;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="/Home.html">Skylo Studios</a>
-    <canvas id="particleCanvas"></canvas>
+    <div class="background">
+        <!-- Sliding Bars -->
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="center-content">
+        <h1>Coming Soon!</h1>
+    </div>
 
     <script>
-        const canvas = document.getElementById('particleCanvas');
-        const ctx = canvas.getContext('2d');
+        // Dynamically Add Sliding Bars for Additional Customization
+        const background = document.querySelector('.background');
+        const barCount = 15; // Adjust the number of bars if needed
 
-        // Resize canvas to fit the screen
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+        for (let i = 10; i < barCount; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'bar';
+            bar.style.top = `${10 * i}%`;
+            bar.style.animationDelay = `${i * 0.2}s`;
+            background.appendChild(bar);
         }
-        resizeCanvas();
-
-        const particles = [];
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 4 + 1;
-                this.speedX = Math.random() * 2 - 1;
-                this.speedY = Math.random() * 2 - 1;
-                this.alpha = Math.random() * 0.8 + 0.2;
-            }
-
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                // Wrap around screen edges
-                if (this.x > canvas.width) this.x = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.y < 0) this.y = canvas.height;
-            }
-
-            draw() {
-                ctx.globalAlpha = this.alpha;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = '#ffffff';
-                ctx.fill();
-            }
-        }
-
-        function initParticles() {
-            for (let i = 0; i < 100; i++) {
-                particles.push(new Particle());
-            }
-        }
-
-        function handleParticles() {
-            for (let particle of particles) {
-                particle.update();
-                particle.draw();
-            }
-        }
-
-        window.addEventListener('resize', () => {
-            resizeCanvas();
-            particles.length = 0;
-            initParticles();
-        });
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            handleParticles();
-            requestAnimationFrame(animate);
-        }
-
-        initParticles();
-        animate();
     </script>
 </body>
 </html>
