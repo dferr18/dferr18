@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skylo Studios</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0e0e0e;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 4rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            margin-bottom: 50px;
+            z-index: 10; /* Ensure it stays above the background */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            z-index: 10; /* Ensure it stays above the background */
+        }
+
+        li {
+            font-size: 2rem;
+            margin: 20px 0;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        li span {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        li span:hover {
+            color: #00ffff;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 1);
+        }
+
+        li:hover {
+            transform: scale(1.1);
+        }
+
+        /* Background animation */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1; /* Ensure it stays behind the content */
+        }
+
+        .bar {
+            position: absolute;
+            width: 10px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            bottom: -150px;
+            animation: float 10s linear infinite;
+        }
+
+        /* Randomized animations */
+        .bar:nth-child(1) {
+            left: 10%;
+            animation-duration: 8s;
+            animation-delay: 0s;
+        }
+
+        .bar:nth-child(2) {
+            left: 25%;
+            animation-duration: 12s;
+            animation-delay: 2s;
+        }
+
+        .bar:nth-child(3) {
+            left: 40%;
+            animation-duration: 10s;
+            animation-delay: 4s;
+        }
+
+        .bar:nth-child(4) {
+            left: 60%;
+            animation-duration: 7s;
+            animation-delay: 1s;
+        }
+
+        .bar:nth-child(5) {
+            left: 75%;
+            animation-duration: 11s;
+            animation-delay: 3s;
+        }
+
+        .bar:nth-child(6) {
+            left: 90%;
+            animation-duration: 9s;
+            animation-delay: 6s;
+        }
+
+        /* Animation for bars floating upwards */
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-120vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <h1>Skylo Studios</h1>
+    <ul>
+        <li><a href="commissions.html" style="text-decoration: none;"><span>Commissions</span></a></li>
+        <li onclick="scrollToSection('pricing')"><span>Pricing</span></li>
+        <li onclick="scrollToSection('contact')"><span>Contact</span></li>
+        <li onclick="scrollToSection('terms')"><span>Terms</span></li>
+    </ul>
+
+    <!-- Hidden sections for navigation -->
+    <div id="pricing" style="height: 100vh; display: none;">Pricing Content</div>
+    <div id="contact" style="height: 100vh; display: none;">Contact Content</div>
+    <div id="terms" style="height: 100vh; display: none;">Terms and Conditions</div>
+
+    <script>
+        // Function to handle smooth scrolling to sections
+        function scrollToSection(id) {
+            const section = document.getElementById(id);
+            if (section) {
+                section.style.display = 'flex';
+                section.style.justifyContent = 'center';
+                section.style.alignItems = 'center';
+                section.style.fontSize = '2rem';
+                section.style.color = '#fff';
+                section.style.textAlign = 'center';
+                section.style.backgroundColor = '#0e0e0e';
+
+                section.scrollIntoView({ behavior: 'smooth' });
+
+                setTimeout(() => {
+                    const otherSections = document.querySelectorAll('div[id]');
+                    otherSections.forEach((otherSection) => {
+                        if (otherSection.id !== id) {
+                            otherSection.style.display = 'none';
+                        }
+                    });
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+</html>
