@@ -11,11 +11,10 @@
             background-color: #0e0e0e;
             color: #fff;
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto; /* Allow scrolling */
         }
 
         h1 {
@@ -33,14 +32,20 @@
             animation: floatUp 2s ease-out forwards;
         }
 
+        .advanced-container {
+            position: relative;
+            width: fit-content;
+            margin: 60px auto;
+            height: 80px; /* Fixed height to contain sparkles and text */
+        }
+
         .advanced {
             font-size: 3rem;
             font-weight: bold;
             color: #00ffff;
             text-shadow: 0 0 30px rgba(0, 255, 255, 1);
-            margin: 60px 0;
-            position: relative; /* Required for sparkles */
             animation: floatUp 2.5s ease-out forwards;
+            position: relative; /* Allow sparkles to align relative to this text */
         }
 
         /* Animations */
@@ -95,34 +100,40 @@
     <div class="title" style="animation-delay: 0.6s;">Quest Avatar Commission</div>
 
     <!-- Prominent Advanced Section with Sparkles -->
-    <div class="advanced" id="advanced" style="animation-delay: 0.8s;">Advanced</div>
+    <div class="advanced-container" id="advanced-container">
+        <div class="advanced" id="advanced">Advanced</div>
+    </div>
 
     <div class="title" style="animation-delay: 1.0s;">SPS Setup and Config</div>
     <div class="title" style="animation-delay: 1.2s;">Avatar Rebuild</div>
 
     <script>
+        const advancedContainer = document.getElementById('advanced-container');
         const advancedElement = document.getElementById('advanced');
         let sparkleInterval;
         let hoverIntensity = 3; // Default intensity for sparkles
 
-        // Function to create sparkles around the word
+        // Function to create sparkles within the advanced container
         function createSparkleAroundElement(element, intensity) {
             const rect = element.getBoundingClientRect();
+            const containerRect = advancedContainer.getBoundingClientRect();
+            
             for (let i = 0; i < intensity; i++) {
                 const sparkle = document.createElement('div');
                 sparkle.classList.add('sparkle');
 
-                // Generate random positions around the element
-                const randomX = rect.left + Math.random() * rect.width;
-                const randomY = rect.top + Math.random() * rect.height;
+                // Generate random positions within the container relative to the text
+                const randomX = Math.random() * rect.width;
+                const randomY = Math.random() * rect.height;
 
+                // Position relative to the advanced container
                 sparkle.style.left = `${randomX}px`;
                 sparkle.style.top = `${randomY}px`;
 
+                advancedContainer.appendChild(sparkle);
+
                 // Randomized animation
                 sparkle.style.animationDuration = `${1 + Math.random()}s`;
-
-                document.body.appendChild(sparkle);
 
                 // Remove sparkle after animation
                 sparkle.addEventListener('animationend', () => {
@@ -141,13 +152,13 @@
         }
 
         // On hover: Increase sparkle intensity
-        advancedElement.addEventListener('mouseover', () => {
+        advancedContainer.addEventListener('mouseover', () => {
             hoverIntensity = 15; // High intensity for hover
             startSparkles(advancedElement, hoverIntensity);
         });
 
         // On mouse leave: Lower sparkle intensity
-        advancedElement.addEventListener('mouseleave', () => {
+        advancedContainer.addEventListener('mouseleave', () => {
             hoverIntensity = 3; // Default subtle intensity
             startSparkles(advancedElement, hoverIntensity);
         });
