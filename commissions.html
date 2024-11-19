@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commissions - Skylo Studios</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0e0e0e;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow: hidden;
+        }
 
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 50px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .title {
+            font-size: 2rem;
+            margin: 20px 0;
+            opacity: 0;
+            animation: floatUp 2s ease-out forwards;
+        }
+
+        /* Styling for "Advanced" as a visual divider */
+        .advanced {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 1);
+            margin: 50px 0;
+            opacity: 0;
+            animation: floatUp 2.5s ease-out forwards;
+            text-align: center;
+        }
+
+        .tier-section {
+            margin-top: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes floatUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Commissions</h1>
+
+    <!-- First Tier Section -->
+    <div class="title" style="animation-delay: 0.2s;">Asset Attachment</div>
+    <div class="title" style="animation-delay: 0.4s;">Simple Textures</div>
+    <div class="title" style="animation-delay: 0.6s;">Quest Avatar Commission</div>
+
+    <!-- Advanced Divider -->
+    <div class="advanced" style="animation-delay: 0.8s;">Advanced</div>
+
+    <!-- Second Tier Section -->
+    <div class="title tier-section" style="animation-delay: 1.0s;">SPS Setup and Config</div>
+    <div class="title tier-section" style="animation-delay: 1.2s;">Avatar Rebuild</div>
+</body>
+</html>
