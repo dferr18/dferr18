@@ -18,18 +18,18 @@
         }
 
         a {
-            position: absolute;
-            font-size: 4rem;
+            font-size: 3rem; /* Adjusted font size for better scaling */
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
             letter-spacing: 2px;
             color: #f1f1f1;
             text-decoration: none;
-            z-index: 10; /* Ensures it's above the canvas */
+            z-index: 10;
             transition: color 0.3s ease, text-shadow 0.3s ease;
+            text-align: center; /* Centers text content inside the link */
         }
 
         a:hover {
-            color: #00ffff; /* Cyan color */
+            color: #00ffff;
             text-shadow: 0 0 30px rgba(0, 255, 255, 1), 0 0 60px rgba(0, 255, 255, 0.7);
         }
 
@@ -48,8 +48,12 @@
         const canvas = document.getElementById('particleCanvas');
         const ctx = canvas.getContext('2d');
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        // Resize canvas to fit the screen
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
 
         const particles = [];
 
@@ -60,7 +64,7 @@
                 this.size = Math.random() * 4 + 1;
                 this.speedX = Math.random() * 2 - 1;
                 this.speedY = Math.random() * 2 - 1;
-                this.alpha = Math.random() * 0.8 + 0.2; // Random transparency
+                this.alpha = Math.random() * 0.8 + 0.2;
             }
 
             update() {
@@ -97,8 +101,7 @@
         }
 
         window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            resizeCanvas();
             particles.length = 0;
             initParticles();
         });
