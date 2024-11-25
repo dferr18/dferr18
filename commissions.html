@@ -3,184 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commissions - Skylo Studios</title>
+    <title>Simple Textures</title>
     <style>
         body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #0e0e0e;
-            color: #fff;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            padding: 20px;
-            overflow-y: auto; /* Allow scrolling */
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none; /* Remove underline from link */
         }
 
         h1 {
-            font-size: 4rem;
-            margin-bottom: 50px;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-            text-align: center;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        .title {
-            font-size: 2rem;
-            margin: 20px 0;
-            opacity: 0;
-            animation: floatUp 2s ease-out forwards;
-        }
-
-        .advanced-container {
-            position: relative;
-            width: fit-content;
-            margin: 60px auto;
-            height: 80px; /* Fixed height to contain sparkles and text */
-        }
-
-        .advanced {
             font-size: 3rem;
-            font-weight: bold;
-            color: #00ffff;
-            text-shadow: 0 0 30px rgba(0, 255, 255, 1);
-            animation: floatUp 2.5s ease-out forwards;
-            position: relative; /* Allow sparkles to align relative to this text */
+            margin-bottom: 20px;
+            color: #4a4a4a;
+            cursor: pointer; /* Indicate that it's clickable */
+            transition: color 0.3s ease;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        h1:hover {
+            color: #007bff; /* Change color on hover */
         }
 
-        @keyframes floatUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        ul {
+            list-style-type: none; /* Remove default bullet points */
+            padding: 0;
+            text-align: left;
+            margin: 0;
         }
 
-        /* Sparkles */
-        .sparkle {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background: #00ffff;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 1);
-            pointer-events: none;
-            animation: sparkleMove 1.5s ease-out forwards;
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        @keyframes sparkleMove {
-            from {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-            to {
-                opacity: 0;
-                transform: scale(0.5) translateY(-50px) translateX(20px);
-            }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        /* Style for clickable links */
-        a {
-            color: #00ffff; /* Link color */
-            text-decoration: none; /* Remove underline */
-            transition: color 0.3s; /* Smooth color transition */
-        }
-
-        a:hover {
-            color: #21a1f1; /* Change color on hover */
+        .button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
         }
     </style>
 </head>
 <body>
-    <h1>Commissions</h1>
-    
-    <!-- Make Asset Attachment a clickable title -->
-    <a href="Asset.html">
-        <div class="title" style="animation-delay: 0.2s;">Asset Attachment</div>
+    <a href="Textures.html">
+        <h1>Simple Textures</h1>
     </a>
-    
-    <div class="title" style="animation-delay: 0.4s;">Simple Textures</div>
-    <div class="title" style="animation-delay: 0.6s;">Quest Avatar Commission</div>
-
-    <!-- Prominent Advanced Section with Sparkles -->
-    <div class="advanced-container" id="advanced-container">
-        <div class="advanced" id="advanced">Advanced</div>
-    </div>
-
-    <div class="title" style="animation-delay: 1.0s;">SPS Setup and Config</div>
-    <div class="title" style="animation-delay: 1.2s;">Avatar Rebuild</div>
+    <ul>
+        <li><strong>Service Offered:</strong> Simple texture commissions.</li>
+        <li><strong>Price:</strong> $40.</li>
+        <li><strong>Examples of Simple Textures:</strong></li>
+        <ul>
+            <li>Re-colors.</li>
+            <li>Adding a graphic to an avatar.</li>
+            <li>Applying a gradient to a specific body part.</li>
+        </ul>
+        <li><strong>Note:</strong> This list is not exhaustive; custom requests are welcome.</li>
+        <li><strong>Contact:</strong> Reach out to discuss specific job details.</li>
+    </ul>
+    <button class="button" onclick="contactUs()">Contact</button>
 
     <script>
-        const advancedContainer = document.getElementById('advanced-container');
-        const advancedElement = document.getElementById('advanced');
-        let sparkleInterval;
-        let hoverIntensity = 3; // Default intensity for sparkles
-
-        // Function to create sparkles within the advanced container
-        function createSparkleAroundElement(element, intensity) {
-            const rect = element.getBoundingClientRect();
-            const containerRect = advancedContainer.getBoundingClientRect();
-            
-            for (let i = 0; i < intensity; i++) {
-                const sparkle = document.createElement('div');
-                sparkle.classList.add('sparkle');
-
-                // Generate random positions within the container relative to the text
-                const randomX = Math.random() * rect.width;
-                const randomY = Math.random() * rect.height;
-
-                // Position relative to the advanced container
-                sparkle.style.left = `${randomX}px`;
-                sparkle.style.top = `${randomY}px`;
-
-                advancedContainer.appendChild(sparkle);
-
-                // Randomized animation
-                sparkle.style.animationDuration = `${1 + Math.random()}s`;
-
-                // Remove sparkle after animation
-                sparkle.addEventListener('animationend', () => {
-                    sparkle.remove();
-                });
-            }
+        function contactUs() {
+            // This function can be used to redirect to a contact page or open an email client
+            window.location.href = 'mailto:your-email@example.com'; // Replace with your actual email
         }
-
-        // Function to manage continuous sparkles
-        function startSparkles(element, intensity) {
-            if (sparkleInterval) clearInterval(sparkleInterval);
-
-            sparkleInterval = setInterval(() => {
-                createSparkleAroundElement(element, intensity);
-            }, 300); // Interval between sparkles
-        }
-
-        // On hover: Increase sparkle intensity
-        advancedContainer.addEventListener('mouseover', () => {
-            hoverIntensity = 15; // High intensity for hover
-            startSparkles(advancedElement, hoverIntensity);
-        });
-
-        // On mouse leave: Lower sparkle intensity
-        advancedContainer.addEventListener('mouseleave', () => {
-            hoverIntensity = 3; // Default subtle intensity
-            startSparkles(advancedElement, hoverIntensity);
-        });
-
-        // Start default sparkles
-        startSparkles(advancedElement, hoverIntensity);
     </script>
 </body>
 </html>
