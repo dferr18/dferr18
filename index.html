@@ -15,6 +15,10 @@
             font-family: 'Arial', sans-serif;
         }
 
+        a {
+            text-decoration: none; /* Remove underline from link */
+        }
+
         h1 {
             color: #61dafb;
             font-size: 4rem;
@@ -34,15 +38,17 @@
     </style>
 </head>
 <body>
-    <h1 id="title">Skylo Studios</h1>
+    <a href="Home.html" id="titleLink">
+        <h1 id="title">Skylo Studios</h1>
+    </a>
 
     <script>
-        const title = document.getElementById('title');
-        
-        title.addEventListener('click', () => {
-            alert('Welcome to Skylo Studios!');
-            // You can also redirect to another page using:
-            // window.location.href = 'http://example.com';
+        const titleLink = document.querySelector('#titleLink');
+
+        titleLink.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent the default anchor behavior
+            alert('Welcome to Skylo Studios!'); // Show alert
+            window.location.href = 'Home.html'; // Redirect after the alert
         });
     </script>
 </body>
