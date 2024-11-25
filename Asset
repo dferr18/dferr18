@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Attachment</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4A90E2;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            margin: 0;
+        }
+
+        li {
+            background: #e9f4ff;
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 10px;
+            transition: background 0.3s;
+        }
+
+        li:hover {
+            background: #d0e2ff;
+        }
+
+        .note {
+            margin-top: 20px;
+            font-style: italic;
+            color: #888;
+        }
+
+        .contact {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Asset Attachment</h1>
+        <ul>
+            <li><strong>Service Offered:</strong> Simple asset attachment commissions.</li>
+            <li><strong>Included Setup:</strong> Toggle setup included.</li>
+            <li><strong>Price:</strong> $20.</li>
+        </ul>
+        <h2>Examples of Simple Assets:</h2>
+        <ul>
+            <li>Attaching hair to an avatar.</li>
+            <li>Attaching props such as a sword, spray bottle, or wings.</li>
+        </ul>
+        <p class="note">Note: This list is not exhaustive; custom requests are welcome.</p>
+        <p class="contact">Contact: Reach out to discuss specific job details.</p>
+    </div>
+</body>
+</html>
