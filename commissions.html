@@ -91,11 +91,27 @@
                 transform: scale(0.5) translateY(-50px) translateX(20px);
             }
         }
+
+        /* Style for clickable links */
+        a {
+            color: #00ffff; /* Link color */
+            text-decoration: none; /* Remove underline */
+            transition: color 0.3s; /* Smooth color transition */
+        }
+
+        a:hover {
+            color: #21a1f1; /* Change color on hover */
+        }
     </style>
 </head>
 <body>
     <h1>Commissions</h1>
-    <div class="title" style="animation-delay: 0.2s;">Asset Attachment</div>
+    
+    <!-- Make Asset Attachment a clickable title -->
+    <a href="Asset.html">
+        <div class="title" style="animation-delay: 0.2s;">Asset Attachment</div>
+    </a>
+    
     <div class="title" style="animation-delay: 0.4s;">Simple Textures</div>
     <div class="title" style="animation-delay: 0.6s;">Quest Avatar Commission</div>
 
