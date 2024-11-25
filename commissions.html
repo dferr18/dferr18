@@ -1,94 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Textures</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commissions - Skylo Studios</title>
+<style>
+body {
+margin: 0;
+font-family: 'Arial', sans-serif;
+background-color: #0e0e0e;
+color: #fff;
+display: flex;
             justify-content: center;
             align-items: center;
+flex-direction: column;
             height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            font-family: 'Arial', sans-serif;
-            color: #333;
+            overflow: hidden;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto; /* Allow scrolling */
+}
+
+h1 {
+@@ -33,14 +32,20 @@
+animation: floatUp 2s ease-out forwards;
+}
+
+        .advanced-container {
+            position: relative;
+            width: fit-content;
+            margin: 60px auto;
+            height: 80px; /* Fixed height to contain sparkles and text */
         }
 
-        a {
-            text-decoration: none; /* Remove underline from link */
-        }
+.advanced {
+font-size: 3rem;
+font-weight: bold;
+color: #00ffff;
+text-shadow: 0 0 30px rgba(0, 255, 255, 1);
+            margin: 60px 0;
+            position: relative; /* Required for sparkles */
+animation: floatUp 2.5s ease-out forwards;
+            position: relative; /* Allow sparkles to align relative to this text */
+}
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #4a4a4a;
-            cursor: pointer; /* Indicate that it's clickable */
-            transition: color 0.3s ease;
-        }
+/* Animations */
+@@ -95,35 +100,41 @@
+<div class="title" style="animation-delay: 0.6s;">Quest Avatar Commission</div>
 
-        h1:hover {
-            color: #007bff; /* Change color on hover */
-        }
+<!-- Prominent Advanced Section with Sparkles -->
+    <div class="advanced" id="advanced" style="animation-delay: 0.8s;">Advanced</div>
+    <div class="advanced-container" id="advanced-container">
+        <div class="advanced" id="advanced">Advanced</div>
+    </div>
 
-        ul {
-            list-style-type: none; /* Remove default bullet points */
-            padding: 0;
-            text-align: left;
-            margin: 0;
-        }
+<div class="title" style="animation-delay: 1.0s;">SPS Setup and Config</div>
+<div class="title" style="animation-delay: 1.2s;">Avatar Rebuild</div>
 
-        li {
-            margin: 10px 0;
-            padding: 10px;
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+<script>
+        const advancedContainer = document.getElementById('advanced-container');
+const advancedElement = document.getElementById('advanced');
+let sparkleInterval;
+let hoverIntensity = 3; // Default intensity for sparkles
 
-        .button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            color: white;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+        // Function to create sparkles around the word
+        // Function to create sparkles within the advanced container
+function createSparkleAroundElement(element, intensity) {
+const rect = element.getBoundingClientRect();
+            const containerRect = advancedContainer.getBoundingClientRect();
+            
+for (let i = 0; i < intensity; i++) {
+const sparkle = document.createElement('div');
+sparkle.classList.add('sparkle');
 
-        .button:hover {
-            background-color: #0056b3; /* Darker blue on hover */
-        }
-    </style>
-</head>
-<body>
-    <a href="Textures.html">
-        <h1>Simple Textures</h1>
-    </a>
-    <ul>
-        <li><strong>Service Offered:</strong> Simple texture commissions.</li>
-        <li><strong>Price:</strong> $40.</li>
-        <li><strong>Examples of Simple Textures:</strong></li>
-        <ul>
-            <li>Re-colors.</li>
-            <li>Adding a graphic to an avatar.</li>
-            <li>Applying a gradient to a specific body part.</li>
-        </ul>
-        <li><strong>Note:</strong> This list is not exhaustive; custom requests are welcome.</li>
-        <li><strong>Contact:</strong> Reach out to discuss specific job details.</li>
-    </ul>
-    <button class="button" onclick="contactUs()">Contact</button>
+                // Generate random positions around the element
+                const randomX = rect.left + Math.random() * rect.width;
+                const randomY = rect.top + Math.random() * rect.height;
+                // Generate random positions within the container relative to the text
+                const randomX = Math.random() * rect.width;
+                const randomY = Math.random() * rect.height;
 
-    <script>
-        function contactUs() {
-            // This function can be used to redirect to a contact page or open an email client
-            window.location.href = 'mailto:your-email@example.com'; // Replace with your actual email
-        }
-    </script>
-</body>
-</html>
+                // Position relative to the advanced container
+sparkle.style.left = `${randomX}px`;
+sparkle.style.top = `${randomY}px`;
+
+                advancedContainer.appendChild(sparkle);
+
+// Randomized animation
+sparkle.style.animationDuration = `${1 + Math.random()}s`;
+
+                document.body.appendChild(sparkle);
+
+// Remove sparkle after animation
+sparkle.addEventListener('animationend', () => {
+sparkle.remove();
+@@ -141,13 +152,13 @@
+}
+
+// On hover: Increase sparkle intensity
+        advancedElement.addEventListener('mouseover', () => {
+        advancedContainer.addEventListener('mouseover', () => {
+hoverIntensity = 15; // High intensity for hover
+startSparkles(advancedElement, hoverIntensity);
+});
+
+// On mouse leave: Lower sparkle intensity
+        advancedElement.addEventListener('mouseleave', () => {
+        advancedContainer.addEventListener('mouseleave', () => {
+hoverIntensity = 3; // Default subtle intensity
+startSparkles(advancedElement, hoverIntensity);
+});
