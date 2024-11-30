@@ -209,6 +209,41 @@
             animation: floatUpRight 5s ease-out forwards;
             opacity: 0;
         }
+            .asset-image-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            gap: 20px;
+            animation: fadeIn 3s ease-in-out;
+            z-index: 15;
+        }
+
+        .asset-image {
+            width: 150px;
+            height: auto;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 255, 255, 0.3);
+        }
+
+        .asset-image:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 255, 255, 0.6);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
     </style>
 </head>
 <body>
@@ -223,7 +258,7 @@
         <div class="bar"></div>
     </div>
 
-    <a href="commissions.html" class="back-button">Back</a>
+    <a href="Comissions.html" class="back-button">Back</a>
 
     <div class="asset-info-container">
         <h1>Asset Attachment</h1>
@@ -242,5 +277,9 @@
     </div>
     <div class="floating-text-right">After</div>
     <img src="skyfall full.png" alt="Floating Image" class="floating-image-right">
+    <div class="asset-image-container">
+        <img src="hair-asset.png" alt="Hair Asset" class="asset-image">
+        <img src="glasses-asset.png" alt="Glasses Asset" class="asset-image">
+    </div>
 </body>
 </html>
