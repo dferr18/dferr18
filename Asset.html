@@ -194,14 +194,19 @@
             opacity: 0;
         }
 
-        .asset-image-container {
-            bottom: 10%;
-            right: 10%;
+        .asset-image-left {
             position: absolute;
-            transform: translate(0, 0);
-            display: flex;
-            gap: 20px;
-            animation: fadeIn 3s ease-in-out;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 15;
+        }
+
+        .asset-image-right {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
             z-index: 15;
         }
 
@@ -217,17 +222,6 @@
         .asset-image:hover {
             transform: scale(1.1);
             box-shadow: 0 8px 16px rgba(0, 255, 255, 0.6);
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translate(-50%, -60%);
-            }
-            100% {
-                opacity: 1;
-                transform: translate(-50%, -50%);
-            }
         }
     </style>
 </head>
@@ -262,10 +256,10 @@
     </div>
     <div class="floating-text-right">After</div>
     <img src="skyfall full.png" alt="Floating Image" class="floating-image-right">
-    <div class="asset-image-left" style="position: absolute; left: 5%; top: 50%; transform: translateY(-50%); z-index: 15;">
+    <div class="asset-image-left">
         <img src="hair-asset.png" alt="Hair Asset" class="asset-image">
     </div>
-    <div class="asset-image-right" style="position: absolute; right: 5%; top: 50%; transform: translateY(-50%); z-index: 15;">
+    <div class="asset-image-right">
         <img src="glasses-asset.png" alt="Glasses Asset" class="asset-image">
     </div>
 </body>
