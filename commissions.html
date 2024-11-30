@@ -196,6 +196,27 @@
                 clip-path: inset(0% 0% 0% 0%);
             }
         }
+
+        /* Back button styling */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px; /* Changed from right to left to move it to the top left corner */
+            color: #fff;
+            font-size: 1.5rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 100;
+            transition: color 0.3s;
+        }
+
+        .back-button:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
     </style>
 </head>
 <body>
@@ -207,6 +228,8 @@
         <div class="bar"></div>
         <div class="bar"></div>
     </div>
+
+    <a href="Home.html" class="back-button">Back</a>
 
     <h1>Commissions</h1>
 
