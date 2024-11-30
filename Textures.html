@@ -26,6 +26,7 @@
             max-width: 600px;
             text-align: center;
             z-index: 10;
+            opacity: 1;
             animation: fadeIn 1s ease-out;
         }
 
@@ -135,60 +136,83 @@
             }
         }
 
-        .floating-image {
+        .floating-image-left {
             position: absolute;
+            left: 5%;
             bottom: 60%;
             width: 300px;
-            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            animation: floatUpLeft 5s ease-out forwards;
             opacity: 0;
+            transition: transform 0.5s ease-in-out;
         }
 
         .floating-text {
             position: absolute;
+            left: 5%;
+            bottom: calc(65% + 3cm);
             color: #fff;
             font-size: 1.5rem;
             font-weight: bold;
             z-index: 20;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        .floating-image-left {
-            left: 5%;
             animation: floatUpLeft 5s ease-out forwards;
-        }
-
-        .floating-image-right {
-            right: 5%;
-            animation: floatUpRight 5s ease-out forwards;
-        }
-
-        .floating-text-left {
-            left: 5%;
-            bottom: calc(65% + 3cm);
-        }
-
-        .floating-text-right {
-            right: 5%;
-            bottom: calc(65% + 3cm);
-        }
-
-        .floating-image:hover {
-            transform: scale(2);
-            z-index: 30;
-            opacity: 1;
+            opacity: 0;
         }
 
         @keyframes floatUpLeft {
-            0% { transform: translateY(100px); opacity: 0; }
-            50% { opacity: 0.5; }
-            100% { transform: translateY(0); opacity: 1; }
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         @keyframes floatUpRight {
-            0% { transform: translateY(100px); opacity: 0; }
-            50% { opacity: 0.5; }
-            100% { transform: translateY(0); opacity: 1; }
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .floating-image-right {
+            position: absolute;
+            right: 5%;
+            bottom: 60%;
+            width: 300px;
+            animation: floatUpRight 5s ease-out forwards;
+            opacity: 0;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .floating-text-right {
+            position: absolute;
+            right: 5%;
+            bottom: calc(65% + 3cm);
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            z-index: 20;
+            animation: floatUpRight 5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .floating-image-left:hover, .floating-image-right:hover {
+            transform: scale(2) !important;
+            transform: scale(2);
+            z-index: 30;
+            transition: transform 0.5s ease-in-out;
         }
     </style>
 </head>
@@ -219,9 +243,9 @@
         <p class="note">Note: This list is not exhaustive; custom requests are welcome.</p>
         <p class="contact">Contact: Reach out to discuss specific job details.</p>
     </div>
-    <div class="floating-text floating-text-left">Before</div>
-    <img src="SKF-TEX-PLAIN.png" alt="Floating Image - Before" class="floating-image floating-image-left">
-    <div class="floating-text floating-text-right">After</div>
-    <img src="SKF-TEX-FULL.png" alt="Floating Image - After" class="floating-image floating-image-right">
+    <div class="floating-text">Before</div>
+    <img src="SKF-TEX-PLAIN.png" alt="Floating Image - Before" class="floating-image-left">
+    <div class="floating-text-right">After</div>
+    <img src="SKF-TEX-FULL.png" alt="Floating Image - After" class="floating-image-right">
 </body>
 </html>
