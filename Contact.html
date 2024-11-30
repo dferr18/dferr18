@@ -42,20 +42,22 @@
 
         .floating-image-left {
             position: absolute;
-            right: 5%;
-            bottom: 0;
+            left: 5%;
+            bottom: 50%;
             width: 150px;
             animation: floatUpLeft 5s ease-out forwards;
             opacity: 0;
+            transform: translateY(50%);
         }
 
         .floating-image-right {
             position: absolute;
-            left: 5%;
-            bottom: 0;
+            right: 5%;
+            bottom: 50%;
             width: 150px;
             animation: floatUpRight 5s ease-out forwards;
             opacity: 0;
+            transform: translateY(50%);
         }
 
         @keyframes floatUp {
@@ -139,6 +141,26 @@
                 opacity: 0;
             }
         }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #fff;
+            font-size: 1.5rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 100;
+            transition: color 0.3s;
+        }
+
+        .back-button:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
     </style>
 </head>
 <body>
@@ -151,8 +173,10 @@
         <div class="bar"></div>
     </div>
 
-    <img src="IMG_5912.GIF" alt="Floating GIF" class="floating-image-right">
-    <img src="Skyfall Excited.png" alt="Floating Image" class="floating-image-left">
+    <a href="Comissions.html" class="back-button">Back</a>
+
+    <img src="IMG_5912.GIF" alt="Floating GIF" class="floating-image-left">
+    <img src="Skyfall Excited.png" alt="Floating Image" class="floating-image-right">
 
     <div class="contact-info-container">
         <div class="contact-info" onclick="copyToClipboard('info@skylostudios.com')">Email: info@skylostudios.com</div>
