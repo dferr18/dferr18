@@ -27,7 +27,7 @@
             text-align: center;
             z-index: 10;
             opacity: 0;
-            animation: floatUp 4s ease-out forwards;
+            opacity: 1;
         }
 
         h1 {
@@ -144,7 +144,7 @@
             left: 5%;
             bottom: 60%;
             width: 300px;
-            animation: floatUpLeft 5s ease-out forwards;
+            
             opacity: 0;
         }
 
@@ -173,7 +173,7 @@
     </style>
 </head>
 <body>
-    <div class="floating-text" style="font-size: 1.5rem; font-weight: bold;">Before</div>
+    <div class="floating-text" style="font-size: 1.5rem; font-weight: bold; position: absolute; left: 50%; top: 10%; transform: translateX(-50%); color: #fff; z-index: 20;">Before</div>
     <img src="skyfall plain.png" alt="Floating Image" class="floating-image-left">
     <div class="background">
         <div class="bar"></div>
