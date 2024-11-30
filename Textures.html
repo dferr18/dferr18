@@ -213,6 +213,23 @@
             z-index: 30;
             transition: transform 0.3s ease-in-out;
         }
+
+        .contact-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00ffff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .contact-button:hover {
+            background-color: #008080;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -241,6 +258,7 @@
         </ul>
         <p class="note">Note: This list is not exhaustive; custom requests are welcome.</p>
         <p class="contact">Contact: Reach out to discuss specific job details.</p>
+        <a href="Contact.html" class="contact-button">Contact</a>
     </div>
     <div class="floating-text">Before</div>
     <img src="SKF-TEX-PLAIN.png" alt="Floating Image - Before" class="floating-image-left">
