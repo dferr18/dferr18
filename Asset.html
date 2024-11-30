@@ -161,10 +161,19 @@
                 opacity: 1;
             }
         }
+            .floating-text {
+            position: absolute;
+            left: 5%;
+            bottom: 65%;
+            color: #fff;
+            font-size: 1rem;
+            animation: floatUpLeft 5s ease-out forwards;
+            opacity: 0;
+        }
     </style>
 </head>
 <body>
-    <p style="position: absolute; left: 5%; bottom: 70%; color: #fff; font-size: 1rem;">before</p>
+    <div class="floating-text">Before</div>
     <img src="skyfall plain.png" alt="Floating Image" class="floating-image-left">
     <div class="background">
         <div class="bar"></div>
