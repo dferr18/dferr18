@@ -49,6 +49,16 @@
             z-index: 5;
         }
 
+        .sparkle-advanced {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            animation: sparkleFlyOut 1.5s ease-out forwards;
+            opacity: 0.8;
+            z-index: 5;
+        }
+
         @keyframes sparkleFlyOut {
             0% {
                 transform: translate(0, 0) scale(1);
@@ -201,7 +211,7 @@
         .back-button {
             position: absolute;
             top: 20px;
-            left: 20px; /* Changed from right to left to move it to the top left corner */
+            left: 20px;
             color: #fff;
             font-size: 1.5rem;
             text-decoration: none;
@@ -240,16 +250,24 @@
         <li><a href="QuestOptimize.html">Quest Avatar Optimization</a></li>
     </ul>
 
+    
+
     <a href="Contact.html" class="contact-button">Contact</a>
 
     <script>
-        function createSparkles(targetId, sparkleCount) {
+        function createSparkles(targetId, sparkleCount, interval, sparkleClass = 'sparkle') {
             const target = document.getElementById(targetId);
             const rect = target.getBoundingClientRect();
+            const colors = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'violet'];
 
             for (let i = 0; i < sparkleCount; i++) {
                 const sparkle = document.createElement('div');
-                sparkle.classList.add('sparkle');
+                sparkle.classList.add(sparkleClass);
+
+                if (sparkleClass === 'sparkle-advanced') {
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                    sparkle.style.background = randomColor;
+                }
 
                 // Generate random position along the border
                 const edge = Math.random() < 0.5 ? 'horizontal' : 'vertical';
@@ -280,11 +298,13 @@
             }
 
             // Repeat sparkler effect
-            setTimeout(() => createSparkles(targetId, sparkleCount), 300);
+            setTimeout(() => createSparkles(targetId, sparkleCount, interval, sparkleClass), interval);
         }
 
         // Add sparkler effect around the word "Basic"
-        createSparkles('basicTitle', 10);
+        createSparkles('basicTitle', 10, 300);
+        // Add more intense sparkler effect around the word "Advanced" with rainbow sparkles
+        createSparkles('advancedTitle', 20, 150, 'sparkle-advanced');
     </script>
 </body>
 </html>
