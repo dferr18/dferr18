@@ -26,7 +26,6 @@
             max-width: 600px;
             text-align: center;
             z-index: 10;
-            opacity: 0;
             opacity: 1;
         }
 
@@ -105,20 +104,6 @@
             }
         }
 
-        @keyframes floatUp {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            50% {
-                opacity: 0.5;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
         .back-button {
             position: absolute;
             top: 20px;
@@ -144,36 +129,23 @@
             left: 5%;
             bottom: 60%;
             width: 300px;
-            
-            opacity: 0;
+            opacity: 1;
         }
 
-        @keyframes floatUpLeft {
-            0% {
-                transform: translateY(100px);
-                opacity: 0;
-            }
-            50% {
-                opacity: 0.5;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-            .floating-text {
+        .floating-text {
             position: absolute;
-            left: 5%;
-            top: 15%;
+            left: 50%;
+            top: 10%;
+            transform: translateX(-50%);
             color: #fff;
             font-size: 1.5rem;
-            animation: floatUpLeft 5s ease-out forwards;
-            opacity: 0;
+            font-weight: bold;
+            z-index: 20;
         }
     </style>
 </head>
 <body>
-    <div class="floating-text" style="font-size: 1.5rem; font-weight: bold; position: absolute; left: 50%; top: 10%; transform: translateX(-50%); color: #fff; z-index: 20;">Before</div>
+    <div class="floating-text">Before</div>
     <img src="skyfall plain.png" alt="Floating Image" class="floating-image-left">
     <div class="background">
         <div class="bar"></div>
