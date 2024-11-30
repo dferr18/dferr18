@@ -1,112 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Commissions - Skylo Studios</title>
-<style>
-body {
-margin: 0;
-font-family: 'Arial', sans-serif;
-background-color: #0e0e0e;
-color: #fff;
-display: flex;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commissions</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0e0e0e;
+            color: #fff;
+            display: flex;
             justify-content: center;
             align-items: center;
-flex-direction: column;
+            flex-direction: column;
             height: 100vh;
             overflow: hidden;
-            align-items: center;
-            padding: 20px;
-            overflow-y: auto; /* Allow scrolling */
-}
-
-h1 {
-@@ -33,14 +32,20 @@
-animation: floatUp 2s ease-out forwards;
-}
-
-        .advanced-container {
             position: relative;
-            width: fit-content;
-            margin: 60px auto;
-            height: 80px; /* Fixed height to contain sparkles and text */
         }
 
-.advanced {
-font-size: 3rem;
-font-weight: bold;
-color: #00ffff;
-text-shadow: 0 0 30px rgba(0, 255, 255, 1);
-            margin: 60px 0;
-            position: relative; /* Required for sparkles */
-animation: floatUp 2.5s ease-out forwards;
-            position: relative; /* Allow sparkles to align relative to this text */
-}
+        h1 {
+            font-size: 4rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 10;
+        }
 
-/* Animations */
-@@ -95,35 +100,41 @@
-<div class="title" style="animation-delay: 0.6s;">Quest Avatar Commission</div>
+        .section-title {
+            font-size: 3rem;
+            color: #00ffff;
+            margin: 30px 0 20px;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+            position: relative;
+            display: inline-block;
+            z-index: 10;
+        }
 
-<!-- Prominent Advanced Section with Sparkles -->
-    <div class="advanced" id="advanced" style="animation-delay: 0.8s;">Advanced</div>
-    <div class="advanced-container" id="advanced-container">
-        <div class="advanced" id="advanced">Advanced</div>
+        /* Sparkle styling */
+        .sparkle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #00ffff;
+            border-radius: 50%;
+            animation: sparkleFlyOut 1.5s ease-out forwards;
+            opacity: 0.8;
+            z-index: 5;
+        }
+
+        @keyframes sparkleFlyOut {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--sparkle-x), var(--sparkle-y)) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        li {
+            font-size: 2rem;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        a:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 30px rgba(255, 255, 255, 1);
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .bar {
+            position: absolute;
+            width: 10px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            bottom: -150px;
+            animation: float 10s linear infinite;
+        }
+
+        .bar:nth-child(1) { left: 10%; animation-duration: 8s; }
+        .bar:nth-child(2) { left: 25%; animation-duration: 12s; }
+        .bar:nth-child(3) { left: 40%; animation-duration: 10s; }
+        .bar:nth-child(4) { left: 60%; animation-duration: 7s; }
+        .bar:nth-child(5) { left: 75%; animation-duration: 11s; }
+        .bar:nth-child(6) { left: 90%; animation-duration: 9s; }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-120vh);
+                opacity: 0;
+            }
+        }
+
+        /* Glitch effect for the Contact button */
+        .contact-button {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #fff;
+            font-size: 1.5rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 20;
+            transition: color 0.3s;
+        }
+
+        .contact-button:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        .contact-button::before {
+            content: 'Contact';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: none;
+            color: #00ffff;
+            z-index: -1;
+            overflow: hidden;
+            clip-path: inset(50% 50%);
+            animation: glitch 2s infinite ease-in-out alternate-reverse;
+        }
+
+        .contact-button::after {
+            content: 'Contact';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: none;
+            color: #ff00ff;
+            z-index: -2;
+            overflow: hidden;
+            clip-path: inset(50% 50%);
+            animation: glitch 3s infinite ease-in-out alternate-reverse;
+        }
+
+        @keyframes glitch {
+            0% {
+                clip-path: inset(0% 0% 0% 0%);
+            }
+            20% {
+                clip-path: inset(10% 0% 30% 0%);
+            }
+            40% {
+                clip-path: inset(40% 0% 10% 0%);
+            }
+            60% {
+                clip-path: inset(10% 0% 40% 0%);
+            }
+            80% {
+                clip-path: inset(30% 0% 20% 0%);
+            }
+            100% {
+                clip-path: inset(0% 0% 0% 0%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
 
-<div class="title" style="animation-delay: 1.0s;">SPS Setup and Config</div>
-<div class="title" style="animation-delay: 1.2s;">Avatar Rebuild</div>
+    <h1>Commissions</h1>
 
-<script>
-        const advancedContainer = document.getElementById('advanced-container');
-const advancedElement = document.getElementById('advanced');
-let sparkleInterval;
-let hoverIntensity = 3; // Default intensity for sparkles
+    <div class="section-title" id="basicTitle">Basic</div>
+    <ul>
+        <li><a href="Asset.html">Asset Attachment</a></li>
+        <li><a href="Textures.html">Simple Textures</a></li>
+        <li><a href="QuestOptimize.html">Quest Avatar Optimization</a></li>
+    </ul>
 
-        // Function to create sparkles around the word
-        // Function to create sparkles within the advanced container
-function createSparkleAroundElement(element, intensity) {
-const rect = element.getBoundingClientRect();
-            const containerRect = advancedContainer.getBoundingClientRect();
-            
-for (let i = 0; i < intensity; i++) {
-const sparkle = document.createElement('div');
-sparkle.classList.add('sparkle');
+    <a href="Contact.html" class="contact-button">Contact</a>
 
-                // Generate random positions around the element
-                const randomX = rect.left + Math.random() * rect.width;
-                const randomY = rect.top + Math.random() * rect.height;
-                // Generate random positions within the container relative to the text
-                const randomX = Math.random() * rect.width;
-                const randomY = Math.random() * rect.height;
+    <script>
+        function createSparkles(targetId, sparkleCount) {
+            const target = document.getElementById(targetId);
+            const rect = target.getBoundingClientRect();
 
-                // Position relative to the advanced container
-sparkle.style.left = `${randomX}px`;
-sparkle.style.top = `${randomY}px`;
+            for (let i = 0; i < sparkleCount; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
 
-                advancedContainer.appendChild(sparkle);
+                // Generate random position along the border
+                const edge = Math.random() < 0.5 ? 'horizontal' : 'vertical';
+                let x = 0, y = 0;
 
-// Randomized animation
-sparkle.style.animationDuration = `${1 + Math.random()}s`;
+                if (edge === 'horizontal') {
+                    x = Math.random() * rect.width; // Random x within width
+                    y = Math.random() < 0.5 ? 0 : rect.height; // Top or bottom
+                } else {
+                    y = Math.random() * rect.height; // Random y within height
+                    x = Math.random() < 0.5 ? 0 : rect.width; // Left or right
+                }
+
+                // Set initial position
+                sparkle.style.left = `${rect.left + x + window.scrollX}px`;
+                sparkle.style.top = `${rect.top + y + window.scrollY}px`;
+
+                // Set fly-out direction (randomized)
+                const angle = Math.random() * Math.PI * 2; // Full circle
+                const distance = Math.random() * 50 + 30; // Distance to fly
+                sparkle.style.setProperty('--sparkle-x', `${Math.cos(angle) * distance}px`);
+                sparkle.style.setProperty('--sparkle-y', `${Math.sin(angle) * distance}px`);
 
                 document.body.appendChild(sparkle);
 
-// Remove sparkle after animation
-sparkle.addEventListener('animationend', () => {
-sparkle.remove();
-@@ -141,13 +152,13 @@
-}
+                // Remove sparkle after animation
+                setTimeout(() => sparkle.remove(), 1500);
+            }
 
-// On hover: Increase sparkle intensity
-        advancedElement.addEventListener('mouseover', () => {
-        advancedContainer.addEventListener('mouseover', () => {
-hoverIntensity = 15; // High intensity for hover
-startSparkles(advancedElement, hoverIntensity);
-});
+            // Repeat sparkler effect
+            setTimeout(() => createSparkles(targetId, sparkleCount), 300);
+        }
 
-// On mouse leave: Lower sparkle intensity
-        advancedElement.addEventListener('mouseleave', () => {
-        advancedContainer.addEventListener('mouseleave', () => {
-hoverIntensity = 3; // Default subtle intensity
-startSparkles(advancedElement, hoverIntensity);
-});
+        // Add sparkler effect around the word "Basic"
+        createSparkles('basicTitle', 10);
+    </script>
+</body>
+</html>
