@@ -197,7 +197,7 @@
         .asset-image-left {
             position: absolute;
             left: 5%;
-            top: 50%;
+            top: 53%;
             transform: translateY(-50%);
             z-index: 15;
         }
@@ -222,6 +222,16 @@
         .asset-image:hover {
             transform: scale(1.1);
             box-shadow: 0 8px 16px rgba(0, 255, 255, 0.6);
+        }
+            @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -256,10 +266,10 @@
     </div>
     <div class="floating-text-right">After</div>
     <img src="skyfall full.png" alt="Floating Image" class="floating-image-right">
-    <div class="asset-image-left">
+    <div class="asset-image-left" style="animation: fadeIn 3s ease-out forwards; opacity: 0;">
         <img src="hair-asset.png" alt="Hair Asset" class="asset-image">
     </div>
-    <div class="asset-image-right">
+    <div class="asset-image-right" style="animation: fadeIn 3s ease-out forwards; opacity: 0;">
         <img src="glasses-asset.png" alt="Glasses Asset" class="asset-image">
     </div>
 </body>
