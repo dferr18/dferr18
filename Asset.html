@@ -141,6 +141,40 @@
             font-weight: bold;
             z-index: 20;
         }
+            @keyframes floatUpLeft {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .floating-image-left {
+            position: absolute;
+            left: 5%;
+            bottom: 60%;
+            width: 300px;
+            animation: floatUpLeft 5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .floating-text {
+            position: absolute;
+            left: 5%;
+            bottom: 70%;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            z-index: 20;
+            animation: floatUpLeft 5s ease-out forwards;
+            opacity: 0;
+        }
     </style>
 </head>
 <body>
