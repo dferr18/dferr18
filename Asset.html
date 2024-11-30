@@ -5,24 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asset Attachment</title>
     <style>
-        /* Base styles */
         body {
             margin: 0;
-            font-family: 'Arial', 'Helvetica', 'sans-serif';
+            font-family: 'Arial', sans-serif;
             background-color: #0e0e0e;
             color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
             overflow: hidden;
+            position: relative;
         }
 
-        a {
-            text-decoration: none;
-        }
-
-        /* Container for main content */
         .asset-info-container {
             background-color: #1a1a1a;
             border-radius: 10px;
@@ -31,6 +26,7 @@
             max-width: 600px;
             text-align: center;
             z-index: 10;
+            opacity: 1;
         }
 
         h1 {
@@ -68,7 +64,6 @@
             font-weight: bold;
         }
 
-        /* Background animation */
         .background {
             position: absolute;
             top: 0;
@@ -109,27 +104,54 @@
             }
         }
 
-        /* Floating images and animations */
-        .floating-image {
+        .back-button {
             position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #fff;
+            font-size: 1.5rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 100;
+            transition: color 0.3s;
+        }
+
+        .back-button:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        .floating-image-left {
+            position: absolute;
+            left: 5%;
             bottom: 60%;
             width: 300px;
-            animation: fadeInUp 3s ease-out;
+            animation: floatUpLeft 5s ease-out forwards;
             opacity: 0;
         }
 
-        .floating-image.left {
+        .floating-text {
+            position: absolute;
             left: 5%;
+            top: 5%;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            z-index: 20;
+            animation: floatUpLeft 5s ease-out forwards;
+            opacity: 0;
         }
 
-        .floating-image.right {
-            right: 5%;
-        }
-
-        @keyframes fadeInUp {
+        @keyframes floatUpLeft {
             0% {
-                transform: translateY(50px);
+                transform: translateY(100px);
                 opacity: 0;
+            }
+            50% {
+                opacity: 0.5;
             }
             100% {
                 transform: translateY(0);
@@ -137,45 +159,85 @@
             }
         }
 
-        .floating-text {
+        @keyframes floatUpRight {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .floating-image-right {
             position: absolute;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #fff;
-            animation: fadeInUp 3s ease-out;
+            right: 5%;
+            bottom: 60%;
+            width: 300px;
+            animation: floatUpRight 5s ease-out forwards;
             opacity: 0;
         }
 
-        .floating-text.left {
-            top: 5%;
-            left: 5%;
-        }
-
-        .floating-text.right {
-            top: 5%;
+        .floating-text-right {
+            position: absolute;
             right: 5%;
+            top: 8%;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            z-index: 20;
+            animation: floatUpRight 5s ease-out forwards;
+            opacity: 0;
         }
 
-        /* Interactive assets */
+        .asset-image-left {
+            position: absolute;
+            left: 5%;
+            top: 53%;
+            transform: translateY(-50%);
+            z-index: 15;
+        }
+
+        .asset-image-right {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 15;
+        }
+
         .asset-image {
             width: 150px;
             height: auto;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 255, 255, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .asset-image:hover {
             transform: scale(1.1);
             box-shadow: 0 8px 16px rgba(0, 255, 255, 0.6);
         }
+            @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Floating elements -->
-    <div class="floating-text left">Before</div>
-    <img src="skyfall_plain.png" alt="Plain Asset" class="floating-image left">
+    <div class="floating-text">Before</div>
+    <img src="skyfall plain.png" alt="Floating Image" class="floating-image-left">
     <div class="background">
         <div class="bar"></div>
         <div class="bar"></div>
@@ -184,9 +246,9 @@
         <div class="bar"></div>
         <div class="bar"></div>
     </div>
+
     <a href="commissions.html" class="back-button">Back</a>
 
-    <!-- Main content -->
     <div class="asset-info-container">
         <h1>Asset Attachment</h1>
         <ul>
@@ -202,32 +264,13 @@
         <p class="note">Note: This list is not exhaustive; custom requests are welcome.</p>
         <p class="contact">Contact: Reach out to discuss specific job details.</p>
     </div>
-
-    <div class="floating-text right">After</div>
-    <img src="skyfall_full.png" alt="Full Asset" class="floating-image right">
-
-    <!-- Asset images -->
-    <div class="asset-image-container">
+    <div class="floating-text-right">After</div>
+    <img src="skyfall full.png" alt="Floating Image" class="floating-image-right">
+    <div class="asset-image-left" style="animation: fadeIn 3s ease-out forwards; opacity: 0;">
         <img src="hair-asset.png" alt="Hair Asset" class="asset-image">
+    </div>
+    <div class="asset-image-right" style="animation: fadeIn 3s ease-out forwards; opacity: 0;">
         <img src="glasses-asset.png" alt="Glasses Asset" class="asset-image">
     </div>
-
-    <!-- JavaScript for Interactive Animations -->
-    <script>
-        // Dynamically stagger animations for bars
-        document.querySelectorAll('.bar').forEach((bar, index) => {
-            bar.style.animationDelay = `${index * 2}s`;
-        });
-
-        // Add dynamic hover effects to floating images
-        document.querySelectorAll('.floating-image').forEach(image => {
-            image.addEventListener('mouseover', () => {
-                image.style.transform = 'scale(1.1)';
-            });
-            image.addEventListener('mouseout', () => {
-                image.style.transform = 'scale(1)';
-            });
-        });
-    </script>
 </body>
 </html>
