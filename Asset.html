@@ -129,7 +129,8 @@
             left: 5%;
             bottom: 60%;
             width: 300px;
-            opacity: 1;
+            animation: floatUpLeft 5s ease-out forwards;
+            opacity: 0;
         }
 
         .floating-text {
@@ -140,8 +141,11 @@
             font-size: 1.5rem;
             font-weight: bold;
             z-index: 20;
+            animation: floatUpLeft 5s ease-out forwards;
+            opacity: 0;
         }
-            @keyframes floatUpLeft {
+
+        @keyframes floatUpLeft {
             0% {
                 transform: translateY(100px);
                 opacity: 0;
@@ -155,27 +159,7 @@
             }
         }
 
-        .floating-image-left {
-            position: absolute;
-            left: 5%;
-            bottom: 60%;
-            width: 300px;
-            animation: floatUpLeft 5s ease-out forwards;
-            opacity: 0;
-        }
-
-        .floating-text {
-            position: absolute;
-            left: 5%;
-            top: 5%;
-            color: #fff;
-            font-size: 1.5rem;
-            font-weight: bold;
-            z-index: 20;
-            animation: floatUpLeft 5s ease-out forwards;
-            opacity: 0;
-        }
-            @keyframes floatUpRight {
+        @keyframes floatUpRight {
             0% {
                 transform: translateY(100px);
                 opacity: 0;
@@ -209,11 +193,12 @@
             animation: floatUpRight 5s ease-out forwards;
             opacity: 0;
         }
-            .asset-image-container {
+
+        .asset-image-container {
+            bottom: 10%;
+            right: 10%;
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(0, 0);
             display: flex;
             gap: 20px;
             animation: fadeIn 3s ease-in-out;
@@ -277,7 +262,7 @@
     </div>
     <div class="floating-text-right">After</div>
     <img src="skyfall full.png" alt="Floating Image" class="floating-image-right">
-    <div class="asset-image-container" style="bottom: 10%; right: 10%; position: absolute; transform: translate(0, 0);">
+    <div class="asset-image-container">
         <img src="hair-asset.png" alt="Hair Asset" class="asset-image">
         <img src="glasses-asset.png" alt="Glasses Asset" class="asset-image">
     </div>
