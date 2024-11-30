@@ -143,12 +143,13 @@
             width: 300px;
             animation: floatUpLeft 5s ease-out forwards;
             opacity: 0;
+            transition: transform 0.5s ease-in-out;
         }
 
         .floating-text {
             position: absolute;
             left: 5%;
-            top: 5%;
+            bottom: 65%;
             color: #fff;
             font-size: 1.5rem;
             font-weight: bold;
@@ -192,12 +193,13 @@
             width: 300px;
             animation: floatUpRight 5s ease-out forwards;
             opacity: 0;
+            transition: transform 0.5s ease-in-out;
         }
 
         .floating-text-right {
             position: absolute;
             right: 5%;
-            top: 5%;
+            bottom: 65%;
             color: #fff;
             font-size: 1.5rem;
             font-weight: bold;
@@ -206,8 +208,7 @@
             opacity: 0;
         }
         .floating-image-left:hover, .floating-image-right:hover {
-            transform: scale(2);
-            transition: transform 0.5s ease-in-out;
+            transform: scale(1.5);
             z-index: 30;
         }
     </style>
@@ -239,9 +240,9 @@
         <p class="note">Note: This list is not exhaustive; custom requests are welcome.</p>
         <p class="contact">Contact: Reach out to discuss specific job details.</p>
     </div>
-    <div class="floating-text" style="bottom: 65%;">Before</div>
+    <div class="floating-text">Before</div>
     <img src="SKF-TEX-PLAIN.png" alt="Floating Image - Before" class="floating-image-left">
-    <div class="floating-text-right" style="bottom: 65%;">After</div>
+    <div class="floating-text-right">After</div>
     <img src="SKF-TEX-FULL.png" alt="Floating Image - After" class="floating-image-right">
 </body>
 </html>
