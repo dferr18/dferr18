@@ -27,6 +27,7 @@
             text-align: center;
             z-index: 10;
             opacity: 1;
+            animation: fadeIn 1s ease-out;
         }
 
         h1 {
@@ -139,7 +140,7 @@
             position: absolute;
             left: 5%;
             bottom: 60%;
-            width: 504px;
+            width: 300px;
             animation: floatUpLeft 5s ease-out forwards;
             opacity: 0;
         }
@@ -188,7 +189,7 @@
             position: absolute;
             right: 5%;
             bottom: 60%;
-            width: 360px;
+            width: 300px;
             animation: floatUpRight 5s ease-out forwards;
             opacity: 0;
         }
@@ -204,8 +205,8 @@
             animation: floatUpRight 5s ease-out forwards;
             opacity: 0;
         }
-            .floating-image-left:hover, .floating-image-right:hover {
-            transform: scale(2);
+        .floating-image-left:hover, .floating-image-right:hover {
+            transform: scale(1.5);
             transition: transform 0.5s ease-in-out;
             z-index: 30;
         }
@@ -239,8 +240,8 @@
         <p class="contact">Contact: Reach out to discuss specific job details.</p>
     </div>
     <div class="floating-text">Before</div>
-    <img src="SKF-TEX-PLAIN.png" alt="Floating Image" class="floating-image-left">
+    <img src="SKF-TEX-PLAIN.png" alt="Floating Image - Before" class="floating-image-left">
     <div class="floating-text-right">After</div>
-    <img src="SKF-TEX-FULL.png" alt="Floating Image" class="floating-image-right">
+    <img src="SKF-TEX-FULL.png" alt="Floating Image - After" class="floating-image-right">
 </body>
 </html>
