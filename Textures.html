@@ -134,6 +134,76 @@
                 transform: translateY(0);
             }
         }
+
+        .floating-image-left {
+            position: absolute;
+            left: 5%;
+            bottom: 60%;
+            width: 300px;
+            animation: floatUpLeft 5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .floating-text {
+            position: absolute;
+            left: 5%;
+            top: 5%;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            z-index: 20;
+            animation: floatUpLeft 5s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes floatUpLeft {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes floatUpRight {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .floating-image-right {
+            position: absolute;
+            right: 5%;
+            bottom: 60%;
+            width: 300px;
+            animation: floatUpRight 5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .floating-text-right {
+            position: absolute;
+            right: 5%;
+            top: 5%;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            z-index: 20;
+            animation: floatUpRight 5s ease-out forwards;
+            opacity: 0;
+        }
     </style>
 </head>
 <body>
@@ -163,5 +233,9 @@
         <p class="note">Note: This list is not exhaustive; custom requests are welcome.</p>
         <p class="contact">Contact: Reach out to discuss specific job details.</p>
     </div>
+    <div class="floating-text">Before</div>
+    <img src="SKF-TEX-PLAIN.png" alt="Floating Image" class="floating-image-left">
+    <div class="floating-text-right">After</div>
+    <img src="SKF-TEX-FULL.png" alt="Floating Image" class="floating-image-right">
 </body>
 </html>
