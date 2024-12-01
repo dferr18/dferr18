@@ -124,89 +124,6 @@
             text-shadow: 0 0 10px #00ffff;
         }
 
-        .contact-button {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: #fff;
-            font-size: 1.5rem;
-            text-decoration: none;
-            text-transform: uppercase;
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 20;
-            transition: color 0.3s;
-        }
-
-        .contact-button:hover {
-            color: #00ffff;
-            text-shadow: 0 0 10px #00ffff;
-        }
-
-        .contact-button::before {
-            content: 'Contact';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: none;
-            color: #00ffff;
-            z-index: -1;
-            overflow: hidden;
-            clip-path: inset(50% 50%);
-            animation: glitch 2s infinite ease-in-out alternate-reverse;
-        }
-
-        .contact-button::after {
-            content: 'Contact';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: none;
-            color: #ff00ff;
-            z-index: -2;
-            overflow: hidden;
-            clip-path: inset(50% 50%);
-            animation: glitch 3s infinite ease-in-out alternate-reverse;
-        }
-
-        @keyframes glitch {
-            0% {
-                clip-path: inset(0% 0% 0% 0%);
-            }
-            20% {
-                clip-path: inset(10% 0% 30% 0%);
-            }
-            40% {
-                clip-path: inset(40% 0% 10% 0%);
-            }
-            60% {
-                clip-path: inset(10% 0% 40% 0%);
-            }
-            80% {
-                clip-path: inset(30% 0% 20% 0%);
-            }
-            100% {
-                clip-path: inset(0% 0% 0% 0%);
-            }
-        }
-
-        .floating-text {
-            position: absolute;
-            left: 5%;
-            top: 5%;
-            color: #fff;
-            font-size: 1.5rem;
-            font-weight: bold;
-            z-index: 20;
-            animation: floatUpLeft 5s ease-out forwards;
-            opacity: 0;
-        }
-
         @keyframes floatUpLeft {
             0% {
                 transform: translateY(100px);
@@ -230,6 +147,23 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        .contact-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00ffff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .contact-button:hover {
+            background-color: #008080;
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -256,8 +190,7 @@
         <p>Quest avatar optimizations are modifications done to the avatar that make it more efficient to use on the Quest standalone platform of VRChat. This avatar variant would be uploaded alongside your PC version, making the avatar show on both platforms.</p>
         <p class="note">Note: Please reach out for custom optimization requirements or questions.</p>
         <p class="contact">Contact: Reach out to discuss specific job details.</p>
+        <a href="Contact.html" class="contact-button">Contact</a>
     </div>
-
-    <a href="Contact.html" class="contact-button">Contact</a>
 </body>
 </html>
