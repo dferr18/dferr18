@@ -222,6 +222,17 @@
             }
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const examplesText = document.createElement("h2");
+            examplesText.innerText = "Examples Below!";
+            examplesText.style.color = "#00ffff";
+            examplesText.style.textAlign = "center";
+            examplesText.style.marginTop = "20px";
+            const firstImage = document.querySelector(".asset-image");
+            firstImage.parentNode.insertBefore(examplesText, firstImage);
+        });
+    </script>
 </head>
 <body>
     <div class="floating-text">Before</div>
