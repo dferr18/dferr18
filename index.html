@@ -44,15 +44,12 @@
         }
 
         .click-here {
-            position: relative;
-    margin-top: 20px;
-    left: 50%;
-    transform: translateX(-50%); /* Adjust position to the right of the title */
-            transform: translateY(-50%);
-            width: 100px; /* Adjust the size as needed */
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
+    color: white;
+    font-family: serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 10px;
+}
 
         #title:hover + .click-here {
     transform: scale(1.1);
@@ -82,7 +79,7 @@
 <body>
     <a href="Home.html">
         <h1 id="title">Skylo Studios</h1>
-        <img src="Images/click-here.png" alt="Click Here" class="click-here" id="click-here">
+        <h2 class="click-here">(click above)</h2>
     </a>
 </body>
 </html>
