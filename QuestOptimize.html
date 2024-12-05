@@ -179,5 +179,30 @@
         
         <a href="Contact.html" class="contact-button">Contact</a>
     </div>
+
+    <script>
+        let startY;
+        let isRefreshing = false;
+
+        window.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                startY = e.touches[0].clientY;
+            }
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            const currentY = e.touches[0].clientY;
+            const distance = currentY - startY;
+
+            if (distance > 100 && !isRefreshing) { // swipe down distance threshold
+                isRefreshing = true;
+                location.reload();
+            }
+        });
+
+        window.addEventListener('touchend', () => {
+            isRefreshing = false;
+        });
+    </script>
 </body>
 </html>
