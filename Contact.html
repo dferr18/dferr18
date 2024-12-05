@@ -13,9 +13,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             overflow: hidden;
             position: relative;
+            padding: 20px;
+            box-sizing: border-box;
+            flex-direction: column;
+            overflow-y: auto;
         }
 
         .contact-info-container {
@@ -24,7 +28,7 @@
         }
 
         .contact-info {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: #00ffff;
             margin-bottom: 20px;
             cursor: pointer;
@@ -33,31 +37,28 @@
         }
 
         .description {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #ffffff;
             opacity: 0;
             animation: floatUp 6s ease-out forwards;
             animation-delay: 1s;
         }
 
-        .floating-image-left {
-            position: absolute;
-            left: 5%;
-            bottom: 50%;
-            width: 150px;
+        .floating-image-left, .floating-image-right {
+            width: 100px;
+            height: auto;
             animation: floatUpLeft 5s ease-out forwards;
             opacity: 0;
             transform: translateY(50%);
+            margin-bottom: 20px;
+        }
+
+        .floating-image-left {
+            margin-right: 10px;
         }
 
         .floating-image-right {
-            position: absolute;
-            right: 5%;
-            bottom: 50%;
-            width: 150px;
-            animation: floatUpRight 5s ease-out forwards;
-            opacity: 0;
-            transform: translateY(50%);
+            margin-left: 10px;
         }
 
         @keyframes floatUp {
@@ -75,20 +76,6 @@
         }
 
         @keyframes floatUpLeft {
-            0% {
-                transform: translateY(100px);
-                opacity: 0;
-            }
-            50% {
-                opacity: 0.5;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes floatUpRight {
             0% {
                 transform: translateY(100px);
                 opacity: 0;
@@ -147,7 +134,7 @@
             top: 20px;
             left: 20px;
             color: #fff;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             text-decoration: none;
             text-transform: uppercase;
             background: none;
@@ -160,6 +147,46 @@
         .back-button:hover {
             color: #00ffff;
             text-shadow: 0 0 10px #00ffff;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .contact-info {
+                font-size: 1.2rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+
+            .floating-image-left, .floating-image-right {
+                width: 80px;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .back-button {
+                font-size: 1rem;
+                top: 10px;
+                left: 10px;
+            }
+
+            .contact-info {
+                font-size: 1rem;
+            }
+
+            .description {
+                font-size: 0.9rem;
+            }
+
+            .floating-image-left, .floating-image-right {
+                width: 60px;
+                margin-bottom: 5px;
+            }
         }
     </style>
 </head>
@@ -175,13 +202,11 @@
 
     <a href="commissions.html" class="back-button">Back</a>
 
-    <img src="Skyfall Excited.png" alt="Floating Image" class="floating-image-left">
-    <img src="IMG_5912.GIF" alt="Floating GIF" class="floating-image-right">
-
     <div class="contact-info-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <img src="Skyfall Excited.png" alt="Floating Image" class="floating-image-left">
+        <img src="IMG_5912.GIF" alt="Floating GIF" class="floating-image-right">
         <div class="contact-info" onclick="copyToClipboard('info@skylostudios.com')">Email: info@skylostudios.com</div>
         <div class="description">Please contact me if you have any enquiries.</div>
-    </div>
     </div>
 
     <script>
