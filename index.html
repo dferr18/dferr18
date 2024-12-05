@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skylo Studios</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             display: flex;
             justify-content: center;
@@ -13,6 +17,7 @@
             margin: 0;
             background-color: #282c34;
             font-family: 'Arial', sans-serif;
+            padding: 0 1rem; /* Add padding for smaller devices */
         }
 
         a {
@@ -25,6 +30,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             transition: transform 0.3s ease, color 0.3s ease;
+            text-align: center; /* Ensure the title is centered on smaller screens */
         }
 
         h1:hover {
@@ -35,15 +41,23 @@
         h1:active {
             transform: scale(0.95);
         }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem; /* Reduce font size for smaller screens */
+            }
+        }
+
+        @media (max-height: 400px) {
+            h1 {
+                font-size: 2rem; /* Reduce font size for very short screens */
+            }
+        }
     </style>
 </head>
 <body>
     <a href="Home.html">
         <h1 id="title">Skylo Studios</h1>
     </a>
-
-    <script>
-        // No JavaScript needed as the link directly navigates to Home.html
-    </script>
 </body>
 </html>
