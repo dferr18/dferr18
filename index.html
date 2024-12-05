@@ -44,9 +44,10 @@
         }
 
         .click-here {
-            position: absolute;
-            top: 50%;
-            left: calc(50% + 170px); /* Adjust position to the right of the title */
+            position: relative;
+    margin-top: 20px;
+    left: 50%;
+    transform: translateX(-50%); /* Adjust position to the right of the title */
             transform: translateY(-50%);
             width: 100px; /* Adjust the size as needed */
             transition: transform 0.3s ease;
@@ -54,27 +55,27 @@
         }
 
         #title:hover + .click-here {
-            transform: translateY(-50%) scale(1.1);
-        }
+    transform: scale(1.1);
+}
 
         @media (max-width: 600px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            .click-here {
-                left: calc(50% + 120px);
-                width: 75px;
-            }
+    h1 {
+        font-size: 2.5rem;
+    }
+    .click-here {
+        width: 75px;
+    }
+}
         }
 
         @media (max-height: 400px) {
-            h1 {
-                font-size: 2rem;
-            }
-            .click-here {
-                left: calc(50% + 100px);
-                width: 60px;
-            }
+    h1 {
+        font-size: 2rem;
+    }
+    .click-here {
+        width: 60px;
+    }
+}
         }
     </style>
 </head>
