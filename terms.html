@@ -1,1 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skylo Studios - Terms of Service</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0e0e0e;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+            padding: 20px;
+            box-sizing: border-box;
+            flex-direction: column;
+            overflow-y: auto;
+        }
 
+        .terms-container {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+            padding: 20px;
+            max-width: 90%;
+            width: 600px;
+            text-align: center;
+            z-index: 10;
+            opacity: 1;
+            animation: fadeIn 1s ease-out;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #00ffff;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        li {
+            background: #333;
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 10px;
+            transition: background 0.3s;
+        }
+
+        li:hover {
+            background: #444;
+        }
+
+        .note {
+            margin-top: 20px;
+            font-style: italic;
+            color: #888;
+        }
+
+        .contact-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00ffff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .contact-button:hover {
+            background-color: #008080;
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #fff;
+            font-size: 1.5rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 100;
+            transition: color 0.3s;
+        }
+
+        .back-button:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .terms-container {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .back-button {
+                font-size: 1rem;
+                top: 10px;
+                left: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-button {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="./" class="back-button">Home</a>
+
+    <div class="terms-container">
+        <h1>Skylo Studios Terms of Service</h1>
+        <ul>
+            <li><strong>Right to Refuse Service:</strong> I reserve the right to refuse service to any customer.</li>
+            <li><strong>Respectful Communication:</strong> You are expected to be respectful toward me and those around me. Bullying, hate speech, or any form of disrespect will not be tolerated.</li>
+            <li><strong>Payment:</strong> All payments are required in full via PayPal before work begins, with proof of payment.</li>
+            <li><strong>Changes and Adjustments:</strong> Major changes must be requested within 24 hours of receiving the asset. If no notification is provided within this timeframe, the commission is considered complete and finalized.</li>
+            <li><strong>Refund Policy:</strong> Refunds are conditional and may not be provided if significant work on the commission has been completed.</li>
+            <li><strong>Learning and Flexibility:</strong> Please remember that I am new and still learning. I am open to discussing what can and cannot be done.</li>
+        </ul>
+        <p class="note">Feel free to reach out with questions or for any details regarding commissions. I don’t bite! Thank you for your interest!</p>
+        <a href="./Contact" class="contact-button">Contact</a>
+    </div>
+</body>
+</html>
