@@ -18,19 +18,21 @@
             position: relative;
             padding: 20px;
             box-sizing: border-box;
+            flex-direction: column;
         }
 
         .asset-info-container {
             background-color: #1a1a1a;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
-            padding: 30px;
-            max-width: 100%;
-            width: 100%;
+            padding: 20px;
+            max-width: 90%;
+            width: 600px;
             text-align: center;
             z-index: 10;
             opacity: 1;
             animation: fadeIn 1s ease-out;
+            margin-bottom: 20px;
         }
 
         h1 {
@@ -159,7 +161,8 @@
 
         @media (max-width: 768px) {
             .asset-info-container {
-                padding: 20px;
+                padding: 15px;
+                width: 100%;
             }
 
             h1 {
@@ -183,7 +186,7 @@
 
         @media (max-width: 480px) {
             .asset-info-container {
-                padding: 15px;
+                padding: 10px;
             }
 
             h1 {
