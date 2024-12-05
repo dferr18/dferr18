@@ -22,9 +22,9 @@
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             position: relative;
             z-index: 10;
             text-align: center;
@@ -36,8 +36,8 @@
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
             padding: 20px;
-            max-width: 90%;
-            width: 600px;
+            max-width: 100%;
+            width: 90%;
             text-align: center;
             z-index: 10;
             opacity: 1;
@@ -56,12 +56,11 @@
             background: #333;
             border-radius: 5px;
             margin: 10px 0;
-            padding: 10px;
+            padding: 15px;
             transition: background 0.3s;
-            font-size: 1.2rem;
+            font-size: 1rem;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
         }
 
         li:hover {
@@ -135,7 +134,7 @@
             top: 20px;
             left: 20px;
             color: #fff;
-            font-size: 1.2rem;
+            font-size: 1rem;
             text-decoration: none;
             text-transform: uppercase;
             background: none;
@@ -166,6 +165,23 @@
         .contact-button:hover {
             background-color: #008080;
             transform: scale(1.1);
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            li {
+                font-size: 1.2rem;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .asset-info-container {
+                width: 600px;
+            }
         }
     </style>
 </head>
