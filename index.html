@@ -5,59 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skylo Studios</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
+        #container {
             display: flex;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #282c34;
-            font-family: 'Arial', sans-serif;
-            padding: 0 1rem; /* Add padding for smaller devices */
+            position: relative;
         }
 
-        a {
-            text-decoration: none; /* Remove underline from link */
+        #skylo {
+            font-size: 24px;
+            font-weight: bold;
         }
 
-        h1 {
-            color: #61dafb;
-            font-size: 4rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: transform 0.3s ease, color 0.3s ease;
-            text-align: center; /* Ensure the title is centered on smaller screens */
-        }
-
-        h1:hover {
-            color: #21a1f1;
-            transform: scale(1.1);
-        }
-
-        h1:active {
-            transform: scale(0.95);
-        }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2.5rem; /* Reduce font size for smaller screens */
-            }
-        }
-
-        @media (max-height: 400px) {
-            h1 {
-                font-size: 2rem; /* Reduce font size for very short screens */
-            }
+        #click-here {
+            position: absolute;
+            right: -10px; /* Adjust this value as needed */
+            top: 50%;
+            transform: translateY(-50%);
+            max-width: 150px; /* Adjust size as needed */
         }
     </style>
 </head>
 <body>
-    <a href="Home.html">
-        <h1 id="title">Skylo Studios</h1>
-    </a>
+    <div id="container">
+        <div id="skylo">Skylo Studios</div>
+        <img id="click-here" src="Images/click-here.png" alt="Click Here">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const clickHereImg = document.getElementById('click-here');
+            const skylo = document.getElementById('skylo');
+
+            // Adjust the positioning dynamically, if needed
+            const adjustPosition = () => {
+                const skyloRect = skylo.getBoundingClientRect();
+                const offset = 10; // Overlap offset
+                clickHereImg.style.left = `${skyloRect.right + offset}px`;
+            };
+
+            // Run on page load and resize
+            adjustPosition();
+            window.addEventListener('resize', adjustPosition);
+        });
+    </script>
 </body>
 </html>
