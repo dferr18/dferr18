@@ -1,1 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Guide</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0e0e0e;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            padding: 20px;
+            box-sizing: border-box;
+        }
 
+        h1 {
+            font-size: 3rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: #00ffff;
+        }
+
+        .asset-info-container {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+            padding: 20px;
+            max-width: 90%;
+            width: 600px;
+            text-align: center;
+            z-index: 10;
+            opacity: 1;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        li {
+            background: #333;
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 10px;
+            transition: background 0.3s;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li:hover {
+            background: #444;
+        }
+
+        .note {
+            margin-top: 20px;
+            font-style: italic;
+            color: #888;
+        }
+
+        .contact {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .bar {
+            position: absolute;
+            width: 10px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            bottom: -150px;
+            animation: float 10s linear infinite;
+        }
+
+        .bar:nth-child(1) { left: 10%; animation-duration: 8s; }
+        .bar:nth-child(2) { left: 25%; animation-duration: 12s; }
+        .bar:nth-child(3) { left: 40%; animation-duration: 10s; }
+        .bar:nth-child(4) { left: 60%; animation-duration: 7s; }
+        .bar:nth-child(5) { left: 75%; animation-duration: 11s; }
+        .bar:nth-child(6) { left: 90%; animation-duration: 9s; }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-120vh);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 100;
+            transition: color 0.3s;
+        }
+
+        .back-button:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        .contact-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #00ffff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 10;
+        }
+
+        .contact-button:hover {
+            background-color: #008080;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <a href="Home.html" class="back-button">Back</a>
+
+    <div class="asset-info-container">
+        <h1>Pricing Guide</h1>
+
+        <h2>Basic Services</h2>
+        <ul>
+            <li><div><strong>Simple Asset Attachment:</strong><br>$20 - Attaching simple assets like hair, props (sword, spray bottle, wings), etc., with toggle setup included. <i>(Contact for specific requests.)</i></div></li>
+            <li><div><strong>Simple Textures:</strong><br>$40 - Re-colors, gradients, or adding graphics to avatars. <i>(Contact for specific requests.)</i></div></li>
+            <li><div><strong>Quest Avatar Optimization:</strong><br>$50 - Optimize avatars for standalone Quest platform, uploaded alongside PC versions.</div></li>
+        </ul>
+
+        <h2>Advanced Services</h2>
+        <ul>
+            <li><div><strong>SPS Setup and Config:</strong><br>$50 - Interactive setups (e.g., sword disappearing into a holder, lollipop into a mouth).</div></li>
+            <li><div><strong>Avatar Rebuild:</strong><br>$100 - Comprehensive rebuilds for avatars.</div></li>
+        </ul>
+
+        <p class="contact">Contact us to discuss specific inquiries and details.</p>
+        <a href="Contact.html" class="contact-button">Contact</a>
+    </div>
+</body>
+</html>
