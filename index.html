@@ -18,11 +18,14 @@
             background-color: #282c34;
             font-family: 'Arial', sans-serif;
             padding: 0 1rem;
-            position: relative; /* To position the click-here image */
         }
 
         a {
-            text-decoration: none; /* Remove underline from link */
+            text-decoration: none;
+        }
+
+        .container {
+            text-align: center;
         }
 
         h1 {
@@ -31,7 +34,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             transition: transform 0.3s ease, color 0.3s ease;
-            text-align: center;
+            margin: 0;
         }
 
         h1:hover {
@@ -44,42 +47,31 @@
         }
 
         .click-here {
-    color: white;
-    font-family: serif;
-    font-size: 2rem;
-    text-align: center;
-    margin-top: 10px;
-}
-
-        #title:hover + .click-here {
-    transform: scale(1.1);
-}
+            color: white;
+            font-family: serif;
+            font-size: 2rem;
+            margin-top: 5px;
+        }
 
         @media (max-width: 600px) {
-    h1 {
-        font-size: 2.5rem;
-    }
-    .click-here {
-        width: 75px;
-    }
-}
+            h1 {
+                font-size: 2.5rem;
+            }
         }
 
         @media (max-height: 400px) {
-    h1 {
-        font-size: 2rem;
-    }
-    .click-here {
-        width: 60px;
-    }
-}
+            h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="Home.html">
-        <h1 id="title">Skylo Studios</h1>
+    <div class="container">
+        <a href="Home.html">
+            <h1 id="title">Skylo Studios</h1>
+        </a>
         <h2 class="click-here">(click above)</h2>
-    </a>
+    </div>
 </body>
 </html>
