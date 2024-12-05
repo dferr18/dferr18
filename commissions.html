@@ -22,83 +22,58 @@
         }
 
         h1 {
-            font-size: 4rem;
+            font-size: 3rem;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
             margin-bottom: 30px;
             position: relative;
             z-index: 10;
             text-align: center;
-        }
-
-        .section-title {
-            font-size: 3rem;
             color: #00ffff;
-            margin: 30px 0 20px;
-            text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
-            position: relative;
-            display: inline-block;
-            z-index: 10;
+        }
+
+        .asset-info-container {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+            padding: 20px;
+            max-width: 90%;
+            width: 600px;
             text-align: center;
-        }
-
-        /* Sparkle styling */
-        .sparkle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: #00ffff;
-            border-radius: 50%;
-            animation: sparkleFlyOut 1.5s ease-out forwards;
-            opacity: 0.8;
-            z-index: 5;
-        }
-
-        .sparkle-advanced {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            border-radius: 50%;
-            animation: sparkleFlyOut 1.5s ease-out forwards;
-            opacity: 0.8;
-            z-index: 5;
-        }
-
-        @keyframes sparkleFlyOut {
-            0% {
-                transform: translate(0, 0) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(var(--sparkle-x), var(--sparkle-y)) scale(0.5);
-                opacity: 0;
-            }
+            z-index: 10;
+            opacity: 1;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-out;
         }
 
         ul {
             list-style: none;
             padding: 0;
             margin: 0;
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            max-width: 600px;
+            text-align: left;
         }
 
         li {
-            font-size: 2rem;
-            margin: 15px 0;
-            text-align: center;
+            background: #333;
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 10px;
+            transition: background 0.3s;
+            font-size: 1.2rem;
         }
 
-        a {
-            text-decoration: none;
-            color: #fff;
-            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        li:hover {
+            background: #444;
         }
 
-        a:hover {
-            transform: scale(1.1);
-            text-shadow: 0 0 30px rgba(255, 255, 255, 1);
+        .note {
+            margin-top: 20px;
+            font-style: italic;
+            color: #888;
+        }
+
+        .contact {
+            margin-top: 20px;
+            font-weight: bold;
         }
 
         .background {
@@ -141,6 +116,37 @@
             }
         }
 
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 100;
+            transition: color 0.3s;
+        }
+
+        .back-button:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
         .contact-button {
             display: inline-block;
             margin-top: 20px;
@@ -159,78 +165,39 @@
             transform: scale(1.1);
         }
 
-        /* Back button styling */
-        .back-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            color: #fff;
-            font-size: 1.5rem;
-            text-decoration: none;
-            text-transform: uppercase;
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 100;
-            transition: color 0.3s;
-        }
-
-        .back-button:hover {
-            color: #00ffff;
-            text-shadow: 0 0 10px #00ffff;
-        }
-
         @media (max-width: 768px) {
             h1 {
-                font-size: 3rem;
-                margin-bottom: 20px;
-            }
-
-            .section-title {
                 font-size: 2.5rem;
-                margin: 20px 0 15px;
             }
 
-            li {
-                font-size: 1.5rem;
-            }
-
-            .contact-button {
-                padding: 8px 16px;
-                font-size: 1rem;
-            }
-
-            .back-button {
-                font-size: 1.2rem;
-                top: 15px;
-                left: 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2.5rem;
-                margin-bottom: 15px;
-            }
-
-            .section-title {
-                font-size: 2rem;
-                margin: 15px 0 10px;
-            }
-
-            li {
-                font-size: 1.2rem;
-            }
-
-            .contact-button {
-                padding: 6px 12px;
-                font-size: 0.9rem;
+            .asset-info-container {
+                width: 100%;
+                padding: 15px;
             }
 
             .back-button {
                 font-size: 1rem;
                 top: 10px;
                 left: 10px;
+            }
+
+            li {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-button {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+
+            li {
+                font-size: 0.9rem;
+            }
+
+            h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -247,19 +214,25 @@
 
     <a href="Home.html" class="back-button">Back</a>
 
-    <h1>Commissions</h1>
+    <div class="asset-info-container">
+        <h1>Commissions</h1>
 
-    <div class="section-title" id="basicTitle">Basic</div>
-    <ul>
-        <li><a href="Asset.html">Asset Attachment</a></li>
-        <li><a href="Textures.html">Simple Textures</a></li>
-        <li><a href="QuestOptimize.html">Quest Avatar Optimization</a></li>
-    </ul>
+        <h2>Basic Services</h2>
+        <ul>
+            <li><strong>Asset Attachment:</strong> Simple asset attachment commissions. <a href="Asset.html" class="contact-button">Details</a></li>
+            <li><strong>Simple Textures:</strong> Basic re-texturing for avatars. <a href="Textures.html" class="contact-button">Details</a></li>
+            <li><strong>Quest Avatar Optimization:</strong> Optimizing avatars for Quest compatibility. <a href="QuestOptimize.html" class="contact-button">Details</a></li>
+        </ul>
 
-    <div class="section-title" id="advancedTitle">Advanced</div>
-    <ul>
-        <li><a href="SPS.html">SPS Setup and Config Commissions (Plug and socket setup)</a></li>
-        <li><a href="AvatarRebuild.html">Avatar Rebuild</a></li>
-    </ul>
+        <h2>Advanced Services</h2>
+        <ul>
+            <li><strong>SPS Setup and Config Commissions:</strong> Plug and socket setup for avatars. <a href="SPS.html" class="contact-button">Details</a></li>
+            <li><strong>Avatar Rebuild:</strong> Full rebuilds of avatars. <a href="AvatarRebuild.html" class="contact-button">Details</a></li>
+        </ul>
 
-    <a href="Contact.html" class="contact-button">Contact</a>
+        <p class="note">Note: This list is not exhaustive; custom requests are welcome.</p>
+        <p class="contact">Contact: Reach out to discuss specific job details.</p>
+        <a href="Contact.html" class="contact-button">Contact</a>
+    </div>
+</body>
+</html>
