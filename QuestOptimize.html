@@ -13,9 +13,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
+            overflow-x: hidden;
             position: relative;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .asset-info-container {
@@ -152,6 +154,54 @@
             background-color: #008080;
             transform: scale(1.1);
         }
+
+        @media (max-width: 768px) {
+            .asset-info-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            li {
+                font-size: 1rem;
+                padding: 8px;
+            }
+
+            .contact-button {
+                padding: 8px 16px;
+                font-size: 1rem;
+            }
+
+            .back-button {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .asset-info-container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            li {
+                font-size: 0.9rem;
+                padding: 6px;
+            }
+
+            .contact-button {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+
+            .back-button {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -179,32 +229,5 @@
         
         <a href="Contact.html" class="contact-button">Contact</a>
     </div>
-
-    <script>
-        let startY = 0;
-        let isRefreshing = false;
-
-        window.addEventListener('touchstart', (e) => {
-            if (e.touches.length === 1) {
-                startY = e.touches[0].clientY;
-            }
-        });
-
-        window.addEventListener('touchmove', (e) => {
-            if (e.touches.length !== 1) return;
-
-            const currentY = e.touches[0].clientY;
-            const distance = currentY - startY;
-
-            if (distance > 100 && !isRefreshing) { // swipe down distance threshold
-                isRefreshing = true;
-                location.reload();
-            }
-        });
-
-        window.addEventListener('touchend', () => {
-            isRefreshing = false;
-        });
-    </script>
 </body>
 </html>
