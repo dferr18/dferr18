@@ -162,20 +162,24 @@
 
     <h1>Skylo Studios</h1>
     <ul>
-        <li><a href="commissions.html" style="text-decoration: none;"><span>Commissions</span></a></li>
+        <li><a href="commissions.html" style="text-decoration: none; color: inherit;"><span>Commissions</span></a></li>
         <li onclick="scrollToSection('pricing')"><span>Pricing</span></li>
         <li onclick="scrollToSection('contact')"><span>Contact</span></li>
         <li onclick="scrollToSection('terms')"><span>Terms</span></li>
     </ul>
 
-    <div id="pricing" style="height: 100vh; display: none;">Pricing Content</div>
-    <div id="contact" style="height: 100vh; display: none;">Contact Content</div>
-    <div id="terms" style="height: 100vh; display: none;">Terms and Conditions</div>
+    <div id="pricing" class="section" style="display: none;">Pricing Content</div>
+    <div id="contact" class="section" style="display: none;">Contact Content</div>
+    <div id="terms" class="section" style="display: none;">Terms and Conditions</div>
 
     <script>
         function scrollToSection(id) {
             const section = document.getElementById(id);
             if (section) {
+                document.querySelectorAll('.section').forEach((sec) => {
+                    sec.style.display = 'none';
+                });
+
                 section.style.display = 'flex';
                 section.style.justifyContent = 'center';
                 section.style.alignItems = 'center';
@@ -185,15 +189,6 @@
                 section.style.backgroundColor = '#0e0e0e';
 
                 section.scrollIntoView({ behavior: 'smooth' });
-
-                setTimeout(() => {
-                    const otherSections = document.querySelectorAll('div[id]');
-                    otherSections.forEach((otherSection) => {
-                        if (otherSection.id !== id) {
-                            otherSection.style.display = 'none';
-                        }
-                    });
-                }, 1000);
             }
         }
     </script>
