@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skylo Studios</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
@@ -15,6 +19,7 @@
             align-items: center;
             flex-direction: column;
             height: 100vh;
+            padding: 0 1rem;
             overflow: hidden;
         }
 
@@ -22,14 +27,15 @@
             font-size: 4rem;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
             margin-bottom: 50px;
-            z-index: 10; /* Ensure it stays above the background */
+            z-index: 10;
+            text-align: center;
         }
 
         ul {
             list-style: none;
             padding: 0;
             margin: 0;
-            z-index: 10; /* Ensure it stays above the background */
+            z-index: 10;
         }
 
         li {
@@ -54,7 +60,6 @@
             transform: scale(1.1);
         }
 
-        /* Background animation */
         .background {
             position: absolute;
             top: 0;
@@ -62,7 +67,7 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            z-index: 1; /* Ensure it stays behind the content */
+            z-index: 1;
         }
 
         .bar {
@@ -74,7 +79,6 @@
             animation: float 10s linear infinite;
         }
 
-        /* Randomized animations */
         .bar:nth-child(1) {
             left: 10%;
             animation-duration: 8s;
@@ -111,7 +115,6 @@
             animation-delay: 6s;
         }
 
-        /* Animation for bars floating upwards */
         @keyframes float {
             0% {
                 transform: translateY(0);
@@ -123,6 +126,26 @@
             100% {
                 transform: translateY(-120vh);
                 opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            li {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-height: 400px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            li {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -145,13 +168,11 @@
         <li onclick="scrollToSection('terms')"><span>Terms</span></li>
     </ul>
 
-    <!-- Hidden sections for navigation -->
     <div id="pricing" style="height: 100vh; display: none;">Pricing Content</div>
     <div id="contact" style="height: 100vh; display: none;">Contact Content</div>
     <div id="terms" style="height: 100vh; display: none;">Terms and Conditions</div>
 
     <script>
-        // Function to handle smooth scrolling to sections
         function scrollToSection(id) {
             const section = document.getElementById(id);
             if (section) {
