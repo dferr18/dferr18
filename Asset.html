@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asset Attachment</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
@@ -13,12 +17,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
-            position: relative;
-            padding: 20px;
-            box-sizing: border-box;
             flex-direction: column;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
             overflow-y: auto;
         }
 
@@ -41,7 +44,7 @@
         }
 
         ul {
-            list-style-type: none;
+            list-style: none;
             padding: 0;
             margin: 0;
             text-align: left;
@@ -130,52 +133,6 @@
             text-shadow: 0 0 10px #00ffff;
         }
 
-        .floating-text, .floating-text-right {
-            position: absolute;
-            font-size: 1.2rem;
-            font-weight: bold;
-            z-index: 20;
-            animation: fadeIn 3s ease-out forwards;
-            opacity: 0;
-        }
-
-        .floating-text {
-            left: 5%;
-            top: 5%;
-        }
-
-        .floating-text-right {
-            right: 5%;
-            top: 8%;
-        }
-
-        .asset-image {
-            width: 150px;
-            height: auto;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 255, 255, 0.3);
-            max-width: 90%;
-            margin-bottom: 20px;
-        }
-
-        .asset-image:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 16px rgba(0, 255, 255, 0.6);
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         .contact-button {
             display: inline-block;
             margin-top: 20px;
@@ -208,11 +165,6 @@
                 top: 10px;
                 left: 10px;
             }
-
-            .floating-text, .floating-text-right {
-                font-size: 1rem;
-                display: none;
-            }
         }
 
         @media (max-width: 480px) {
@@ -222,20 +174,8 @@
             }
         }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const examplesText = document.createElement("h2");
-            examplesText.innerText = "Examples Below!";
-            examplesText.style.color = "#00ffff";
-            examplesText.style.textAlign = "center";
-            examplesText.style.marginTop = "20px";
-            const firstImage = document.querySelector(".asset-image");
-            firstImage.parentNode.insertBefore(examplesText, firstImage);
-        });
-    </script>
 </head>
 <body>
-    <div class="floating-text">Before</div>
     <div class="background">
         <div class="bar"></div>
         <div class="bar"></div>
@@ -262,14 +202,6 @@
         <p class="note">Note: This list is not exhaustive; custom requests are welcome.</p>
         <p class="contact">Contact: Reach out to discuss specific job details.</p>
         <a href="Contact.html" class="contact-button">Contact</a>
-    </div>
-    <img src="Images/skyfall plain.png" alt="Floating Image" class="asset-image">
-    <img src="Images/skyfall full.png" alt="Floating Image" class="asset-image">
-    <div class="asset-image-left">
-        <img src="Images/hair-asset.png" alt="Hair Asset" class="asset-image">
-    </div>
-    <div class="asset-image-right">
-        <img src="Images/glasses-asset.png" alt="Glasses Asset" class="asset-image">
     </div>
 </body>
 </html>
