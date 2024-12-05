@@ -13,9 +13,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
+            overflow-x: hidden;
             position: relative;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .asset-info-container {
@@ -151,6 +153,54 @@
         .contact-button:hover {
             background-color: #008080;
             transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .asset-info-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            li {
+                font-size: 1rem;
+                padding: 8px;
+            }
+
+            .contact-button {
+                padding: 8px 16px;
+                font-size: 1rem;
+            }
+
+            .back-button {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .asset-info-container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            li {
+                font-size: 0.9rem;
+                padding: 6px;
+            }
+
+            .contact-button {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+
+            .back-button {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
