@@ -181,7 +181,7 @@
     </div>
 
     <script>
-        let startY;
+        let startY = 0;
         let isRefreshing = false;
 
         window.addEventListener('touchstart', (e) => {
@@ -191,6 +191,8 @@
         });
 
         window.addEventListener('touchmove', (e) => {
+            if (e.touches.length !== 1) return;
+
             const currentY = e.touches[0].clientY;
             const distance = currentY - startY;
 
