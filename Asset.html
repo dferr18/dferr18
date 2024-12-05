@@ -36,6 +36,7 @@
             z-index: 10;
             opacity: 1;
             margin-bottom: 20px;
+            animation: fadeIn 1s ease-out;
         }
 
         h1 {
@@ -110,6 +111,17 @@
             100% {
                 transform: translateY(-120vh);
                 opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
