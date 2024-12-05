@@ -162,6 +162,26 @@
             transform: scale(1.1);
         }
 
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            max-width: 90%;
+        }
+
+        .image-gallery img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.05);
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 10px;
@@ -183,6 +203,10 @@
             .contact-button {
                 padding: 8px 15px;
                 font-size: 0.9rem;
+            }
+
+            .image-gallery {
+                gap: 5px;
             }
         }
     </style>
@@ -215,5 +239,14 @@
         <p class="contact">Contact: Reach out to discuss specific job details.</p>
         <a href="Contact.html" class="contact-button">Contact</a>
     </div>
+
+    <div class="image-gallery">
+        <img src="Images/skyfall%20full.png" alt="Skyfall Full">
+        <img src="Images/hair-asset.png" alt="Hair Asset">
+        <img src="Images/skyfall%20plain.png" alt="Skyfall Plain">
+        <img src="Images/glasses-asset.png" alt="Glasses Asset">
+    </div>
+
+    <p class="note">Examples below</p>
 </body>
 </html>
