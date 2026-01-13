@@ -4,170 +4,85 @@
   <meta charset="UTF-8" />
   <title>Home | Riverside Furs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
-      min-height: 100%;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: #ffffff;
-      background: #0e0e11;
-      line-height: 1.6;
+      margin: 0; padding: 0; min-height: 100%;
+      font-family: system-ui, -apple-system, sans-serif;
+      color: #ffffff; background: #0e0e11;
     }
 
     .background {
-      position: fixed;
-      inset: -50px;
-      background:
-        radial-gradient(circle at 20% 30%, rgba(120, 90, 255, 0.2), transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(90, 200, 180, 0.15), transparent 45%);
-      filter: blur(60px);
-      z-index: -1;
+      position: fixed; inset: -50px;
+      background: radial-gradient(circle at 80% 20%, rgba(162, 155, 254, 0.1), transparent 50%),
+                  radial-gradient(circle at 20% 80%, rgba(255, 59, 59, 0.1), transparent 50%);
+      filter: blur(60px); z-index: -1;
     }
 
     .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-      animation: fadeIn 0.8s ease-out;
+      max-width: 800px; margin: 0 auto; padding: 4rem 2rem;
+      animation: slideUp 0.8s ease-out;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
+    /* Pride Gradient Title */
     h1 {
-      font-size: 3rem;
-      letter-spacing: 0.05em;
-      margin: 0;
+      font-size: 3.5rem; font-weight: 800; text-align: center; margin: 0;
+      background: linear-gradient(to right, #ff3b3b, #ff9f43, #feca57, #1dd1a1, #54a0ff, #a29bfe);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
 
     .blurb {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.8);
-      max-width: 700px;
-      margin: 1.5rem auto;
-      text-align: center;
+      text-align: center; font-size: 1.2rem; color: rgba(255,255,255,0.8);
+      margin: 2rem 0 4rem 0; line-height: 1.8;
     }
 
-    /* Schedule Table Styling */
-    .schedule-container {
+    .schedule-card {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      overflow: hidden;
-      backdrop-filter: blur(10px);
-      margin-top: 3rem;
+      border-radius: 24px; overflow: hidden; backdrop-filter: blur(10px);
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 1.5rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    th { background: rgba(255,255,255,0.05); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.2em; color: #a29bfe; }
+    
+    .date { font-weight: 700; color: #feca57; }
+
+    .back-btn {
+      display: block; text-align: center; margin-top: 3rem;
+      color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.9rem;
     }
-
-    th, td {
-      padding: 1.25rem 1.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    th {
-      background: rgba(255, 255, 255, 0.05);
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    tr:last-child td { border-bottom: none; }
-
-    tr:hover td {
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    .date-cell {
-      font-weight: 700;
-      color: #90c8b4; /* Tealish accent */
-      width: 30%;
-    }
-
-    .event-cell {
-      color: rgba(255, 255, 255, 0.9);
-    }
-
-    .footer-note {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      opacity: 0.5;
-    }
-
-    .back-link {
-      display: block;
-      text-align: center;
-      margin-top: 2rem;
-      color: rgba(255, 255, 255, 0.3);
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .back-link:hover { color: white; }
+    .back-btn:hover { color: white; }
   </style>
 </head>
 <body>
-
   <div class="background"></div>
-
   <div class="container">
-    <header>
-      <h1>Riverside Furs</h1>
-      <p class="blurb">
-        We're Riverside Furs, a furry group in Brisbane! We meet every <strong>2nd Wednesday</strong> 
-        to hang out at <strong>Southbank</strong>. We host a free BBQ for the community, 
-        so come grab a snag and say hi!
-      </p>
-    </header>
+    <h1>Riverside Furs</h1>
+    <p class="blurb">
+      We're <strong>Riverside Furs</strong>, a furry group in Brisbane! 🐾<br>
+      We meet every 2nd Wednesday at Southbank for a free BBQ and hangs. Come say hi!
+    </p>
 
-    <div class="schedule-container">
+    <div class="schedule-card">
       <table>
         <thead>
-          <tr>
-            <th>Date</th>
-            <th>Event Details</th>
-          </tr>
+          <tr><th>Date</th><th>Event</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="date-cell">14th March</td>
-            <td class="event-cell">Autumn River Meet & BBQ</td>
-          </tr>
-          <tr>
-            <td class="date-cell">14th June</td>
-            <td class="event-cell">Winter Gathering</td>
-          </tr>
-          <tr>
-            <td class="date-cell">14th September</td>
-            <td class="event-cell">Spring Equinox Picnic</td>
-          </tr>
-          <tr>
-            <td class="date-cell">14th December</td>
-            <td class="event-cell">Christmas Riverside Party</td>
-          </tr>
+          <tr><td class="date">14th March</td><td>Autumn River Meet</td></tr>
+          <tr><td class="date">14th June</td><td>Winter Gathering</td></tr>
+          <tr><td class="date">14th September</td><td>Spring Equinox BBQ</td></tr>
+          <tr><td class="date">14th December</td><td>Christmas Party</td></tr>
         </tbody>
       </table>
     </div>
 
-    <p class="footer-note">All meets are weather permitting. Check our socials for live updates.</p>
-    
-    <a href="index.html" class="back-link">← Return to splash</a>
+    <a href="index.html" class="back-btn">← Back to splash</a>
   </div>
-
 </body>
 </html>
