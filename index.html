@@ -19,7 +19,7 @@
     /* Animated background */
     .background {
       position: fixed;
-      inset: 0;
+      inset: -50px;
       background:
         radial-gradient(circle at 20% 30%, rgba(120, 90, 255, 0.25), transparent 40%),
         radial-gradient(circle at 80% 70%, rgba(90, 200, 180, 0.2), transparent 45%),
@@ -30,15 +30,11 @@
     }
 
     @keyframes drift {
-      0% {
-        transform: translate(-2%, -2%) scale(1);
-      }
-      100% {
-        transform: translate(2%, 2%) scale(1.05);
-      }
+      0% { transform: translate(-2%, -2%) scale(1); }
+      100% { transform: translate(2%, 2%) scale(1.1); }
     }
 
-    /* Content */
+    /* Main Container */
     .container {
       height: 100%;
       display: flex;
@@ -46,6 +42,14 @@
       justify-content: center;
       text-align: center;
       padding: 2rem;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    /* Exit animation class */
+    .fade-out {
+      opacity: 0;
+      transform: scale(1.1);
+      pointer-events: none;
     }
 
     h1 {
@@ -57,21 +61,92 @@
 
     .subtitle {
       margin-top: 0.75rem;
+      margin-bottom: 2.5rem;
       font-size: 1.1rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       opacity: 0.75;
     }
+
+    /* Shimmering Button */
+    .enter-btn {
+      position: relative;
+      display: inline-block;
+      padding: 1.1rem 3.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      overflow: hidden;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .enter-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .enter-btn:active {
+      transform: translateY(-1px);
+    }
+
+    /* The Shimmer Movement */
+    .enter-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+      );
+      transform: skewX(-30deg);
+      transition: 0.6s;
+    }
+
+    .enter-btn:hover::before {
+      left: 150%;
+    }
   </style>
 </head>
 <body>
+
   <div class="background"></div>
 
-  <div class="container">
+  <div class="container" id="mainWrapper">
     <div>
       <h1>Riverside Furs</h1>
       <div class="subtitle">Coming soon</div>
+      <button class="enter-btn" onclick="navigateToHome()">Enter</button>
     </div>
   </div>
+
+  <script>
+    function navigateToHome() {
+      // 1. Trigger the visual fade out
+      const wrapper = document.getElementById('mainWrapper');
+      wrapper.classList.add('fade-out');
+
+      // 2. Wait for the animation to finish (600ms) then redirect
+      setTimeout(() => {
+        window.location.href = "home.html";
+      }, 600);
+    }
+  </script>
+
 </body>
 </html>
