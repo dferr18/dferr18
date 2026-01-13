@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Riverside Furs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="asset/IMG_7831.png" />
+  <link rel="icon" type="image/png" href="asset/IMG_7831.PNG" />
   <style>
     html, body {
       margin: 0; padding: 0; height: 100%;
@@ -26,6 +26,17 @@
     @keyframes drift {
       0% { transform: translate(-2%, -2%) scale(1); }
       100% { transform: translate(2%, 2%) scale(1.1); }
+    }
+
+    /* Logo in top left */
+    .logo {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      width: 60px;
+      height: 60px;
+      z-index: 100;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
     }
 
     .container {
@@ -84,6 +95,10 @@
 </head>
 <body>
   <div class="background"></div>
+  
+  <!-- Logo in top left to test if image loads -->
+  <img src="asset/IMG_7831.PNG" alt="Riverside Furs Logo" class="logo">
+  
   <div class="container" id="splash">
     <div>
       <h1>Riverside Furs</h1>
