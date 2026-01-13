@@ -9,74 +9,116 @@
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
+      min-height: 100%;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: #ffffff;
       background: #0e0e11;
+      line-height: 1.6;
     }
 
-    /* Keep the same background for consistency */
     .background {
       position: fixed;
       inset: -50px;
       background:
-        radial-gradient(circle at 20% 30%, rgba(120, 90, 255, 0.25), transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(90, 200, 180, 0.2), transparent 45%),
-        radial-gradient(circle at 50% 50%, rgba(255, 120, 200, 0.15), transparent 50%);
-      filter: blur(40px);
+        radial-gradient(circle at 20% 30%, rgba(120, 90, 255, 0.2), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(90, 200, 180, 0.15), transparent 45%);
+      filter: blur(60px);
       z-index: -1;
     }
 
     .container {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 4rem 2rem;
-      text-align: center;
-      animation: fadeIn 1s ease-out;
+      animation: fadeIn 0.8s ease-out;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    h2 {
-      font-size: 2.5rem;
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    h1 {
+      font-size: 3rem;
       letter-spacing: 0.05em;
-      margin-bottom: 1rem;
+      margin: 0;
     }
 
-    p {
-      line-height: 1.6;
-      opacity: 0.8;
-      font-size: 1.1rem;
+    .blurb {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 700px;
+      margin: 1.5rem auto;
+      text-align: center;
     }
 
-    .status-card {
+    /* Schedule Table Styling */
+    .schedule-container {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 2rem;
-      margin-top: 3rem;
+      border-radius: 20px;
+      overflow: hidden;
       backdrop-filter: blur(10px);
+      margin-top: 3rem;
     }
 
-    .back-btn {
-      margin-top: 2rem;
-      display: inline-block;
-      color: rgba(255, 255, 255, 0.5);
-      text-decoration: none;
-      font-size: 0.8rem;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    th {
+      background: rgba(255, 255, 255, 0.05);
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      border-bottom: 1px solid transparent;
-      transition: all 0.3s;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.6);
     }
 
-    .back-btn:hover {
-      color: #ffffff;
-      border-bottom: 1px solid #ffffff;
+    tr:last-child td { border-bottom: none; }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
     }
+
+    .date-cell {
+      font-weight: 700;
+      color: #90c8b4; /* Tealish accent */
+      width: 30%;
+    }
+
+    .event-cell {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      opacity: 0.5;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 2rem;
+      color: rgba(255, 255, 255, 0.3);
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .back-link:hover { color: white; }
   </style>
 </head>
 <body>
@@ -84,15 +126,47 @@
   <div class="background"></div>
 
   <div class="container">
-    <h2>Welcome Home</h2>
-    <p>The transition worked perfectly. This is your main dashboard placeholder.</p>
+    <header>
+      <h1>Riverside Furs</h1>
+      <p class="blurb">
+        We're Riverside Furs, a furry group in Brisbane! We meet every <strong>2nd Wednesday</strong> 
+        to hang out at <strong>Southbank</strong>. We host a free BBQ for the community, 
+        so come grab a snag and say hi!
+      </p>
+    </header>
 
-    <div class="status-card">
-      <h3>Project Status: Active</h3>
-      <p>Content is currently being prepared. Check back shortly for updates on the Riverside Furs collection.</p>
+    <div class="schedule-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Event Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="date-cell">14th March</td>
+            <td class="event-cell">Autumn River Meet & BBQ</td>
+          </tr>
+          <tr>
+            <td class="date-cell">14th June</td>
+            <td class="event-cell">Winter Gathering</td>
+          </tr>
+          <tr>
+            <td class="date-cell">14th September</td>
+            <td class="event-cell">Spring Equinox Picnic</td>
+          </tr>
+          <tr>
+            <td class="date-cell">14th December</td>
+            <td class="event-cell">Christmas Riverside Party</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <a href="index.html" class="back-btn">← Return to Splash Page</a>
+    <p class="footer-note">All meets are weather permitting. Check our socials for live updates.</p>
+    
+    <a href="index.html" class="back-link">← Return to splash</a>
   </div>
 
 </body>
