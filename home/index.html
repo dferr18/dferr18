@@ -31,6 +31,7 @@
       margin: 0 auto;
       padding: 4rem 2rem;
       animation: rise 0.8s ease-out;
+      text-align: center; /* Center-aligned for the footer image */
     }
 
     @keyframes rise {
@@ -71,6 +72,7 @@
       border-radius: 24px;
       overflow: hidden;
       backdrop-filter: blur(10px);
+      text-align: left; /* Keep table text left-aligned */
     }
 
     table {
@@ -98,16 +100,34 @@
     }
 
     .back-btn {
-      display: block;
+      display: inline-block;
       margin-top: 3rem;
-      text-align: center;
       color: rgba(255,255,255,0.4);
       text-decoration: none;
       font-size: 0.9rem;
+      transition: color 0.2s;
     }
 
     .back-btn:hover {
       color: white;
+    }
+
+    /* Telegram Footer Styling */
+    .tg-footer {
+      display: block;
+      margin: 3rem auto 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 0.8;
+    }
+
+    .tg-footer:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    .tg-icon {
+      width: 50px; /* Adjust size as needed */
+      height: auto;
     }
   </style>
 </head>
@@ -146,6 +166,10 @@
     </div>
 
     <a href="/" class="back-btn">← Back</a>
+
+    <a href="https://t.me/your_telegram_link" class="tg-footer">
+      <img src="asset/tg.png" alt="Telegram" class="tg-icon">
+    </a>
   </div>
 </body>
 </html>
