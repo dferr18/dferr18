@@ -31,7 +31,7 @@
       margin: 0 auto;
       padding: 4rem 2rem;
       animation: rise 0.8s ease-out;
-      text-align: center; /* Center-aligned for the footer image */
+      text-align: center;
     }
 
     @keyframes rise {
@@ -39,27 +39,17 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    h1 {
-      margin: 0;
-      text-align: center;
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      font-weight: 800;
-      background: linear-gradient(
-        to right,
-        #ff3b3b,
-        #ff9f43,
-        #feca57,
-        #1dd1a1,
-        #54a0ff,
-        #a29bfe
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+    /* Logo Styling */
+    .logo {
+      width: 180px;
+      max-width: 60vw;
+      height: auto;
+      margin: 0 auto 2rem;
+      display: block;
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,0.5));
     }
 
     .blurb {
-      text-align: center;
       margin: 2rem 0 1rem;
       font-size: 1.2rem;
       line-height: 1.8;
@@ -72,7 +62,7 @@
       border-radius: 24px;
       overflow: hidden;
       backdrop-filter: blur(10px);
-      text-align: left; /* Keep table text left-aligned */
+      text-align: left;
     }
 
     table {
@@ -112,7 +102,7 @@
       color: white;
     }
 
-    /* Telegram Footer Styling */
+    /* Telegram Footer */
     .tg-footer {
       display: block;
       margin: 3rem auto 0;
@@ -126,7 +116,7 @@
     }
 
     .tg-icon {
-      width: 50px; /* Adjust size as needed */
+      width: 50px;
       height: auto;
     }
   </style>
@@ -136,7 +126,13 @@
   <div class="background"></div>
 
   <div class="container">
-    <h1>Riverside Furs</h1>
+
+    <!-- Logo replaces title -->
+    <img
+      src="/asset/IMG_7831.png"
+      alt="Riverside Furs"
+      class="logo"
+    />
 
     <p class="blurb">
       We’re <strong>Riverside Furs</strong>, a furry group in Brisbane.<br>
@@ -157,10 +153,22 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td class="date">28th March</td><td>Bowling Meet! Venue: Booking in progress.</td></tr>
-          <tr><td class="date">27th June</td><td>Botanic Garden Meet!</td></tr>
-          <tr><td class="date">26th September</td><td>Bar Meet! Venue: Booking in progress.</td></tr>
-          <tr><td class="date">26th December</td><td>Themepark Meet! (Date may need to be revised depending on venue.)</td></tr>
+          <tr>
+            <td class="date">28th March</td>
+            <td>Bowling Meet! Venue: Booking in progress.</td>
+          </tr>
+          <tr>
+            <td class="date">27th June</td>
+            <td>Botanic Garden Meet!</td>
+          </tr>
+          <tr>
+            <td class="date">26th September</td>
+            <td>Bar Meet! Venue: Booking in progress.</td>
+          </tr>
+          <tr>
+            <td class="date">26th December</td>
+            <td>Themepark Meet! (Date may need to be revised depending on venue.)</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -170,6 +178,7 @@
     <a href="https://t.me/RiversideFur" class="tg-footer">
       <img src="/asset/tg.png" alt="Telegram" class="tg-icon">
     </a>
+
   </div>
 </body>
 </html>
